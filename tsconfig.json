@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    // 忽略 this 的类型检查, Raise error on this expressions with an implied any type.
+    "noImplicitThis": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    "lib": ["esnext", "dom"],
+    "types": [
+      "node",
+      "jest",
+    ]
+  },
+  "include": [
+    "/core/**/*.ts",
+    "/core/**/*.d.ts",
+    "/core/**/*.tsx",
+    "/utils/**/*.ts"
+  ],
+  // ts 排除的文件
+  "exclude": ["node_modules", "**/__tests__/"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

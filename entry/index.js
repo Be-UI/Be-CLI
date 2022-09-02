@@ -1,2 +1,2 @@
-require('../entry')
+import '../dist/index.js'
 

@@ -1,17 +1,15 @@
-import * as path from 'path'
 import fs from 'fs-extra'
-// @ts-ignore
 import prompts from 'prompts'
 import type { IPackageInfo } from './types'
-const cp = require('child_process')
+import { spawn } from 'child_process'
 import {ISpawnOptions} from "./types";
+import {cliPackagePath} from "./path";
 export const getConfigFile = (): IPackageInfo => {
-  const readPath = path.resolve(__dirname, '../package.json')
-  const content = fs.readFileSync(readPath, 'utf-8')
+  const content = fs.readFileSync(cliPackagePath, 'utf-8')
   return JSON.parse(content) as IPackageInfo
 }
 
-export const promptsRun = async (option) => {
+export const promptsRun = async (option:prompts.PromptObject ) => {
   const res = await prompts(option)
   return { ...res }
 }
@@ -22,11 +20,11 @@ const runCommand = (
     options: ISpawnOptions = {}
 ): Promise<any> =>
     new Promise((resolve, reject) => {
-      const executedCommand = cp.spawn(command, args, {
+      const executedCommand = spawn(command, args, {
         stdio: 'inherit',
         shell: true,
         ...options
-      })
+      } as any)
 
       // fail
       executedCommand.on('error', (error: string | undefined) => {
