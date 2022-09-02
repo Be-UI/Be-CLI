@@ -1,19 +1,17 @@
 
 import { IViteVueOption } from '../../../utils'
 import ora from 'ora'
-import * as fs from "fs-extra";
+import fs from "fs-extra";
 import {cliRunPath,packagePath,viteConfigPath} from '../../../utils'
-import * as chalk from "chalk";
+import chalk from "chalk";
 export const runViteVue = async (option:IViteVueOption) =>{
     const {
         projectName,
         projectPath,
         uiLibType,
     } = option
-    const filterFile = (src) => {
-        if(
-            src.indexOf('node_modules') >= 0
-            || src.indexOf('auto-imports.d') >= 0
+    const filterFile = (src:string) => {
+        if( src.indexOf('auto-imports.d') >= 0
             || src.indexOf('components.d') >= 0
             || src.indexOf('.git') >= 0
             || src.indexOf('.idea') >= 0 ){
@@ -21,8 +19,8 @@ export const runViteVue = async (option:IViteVueOption) =>{
         }
         return true
     }
+    const spinner = ora('Loading').start()
     try {
-        const spinner = ora('Loading').start()
         spinner.color = 'blue'
         await fs.copySync(cliRunPath, projectPath, { filter: filterFile })
         // 根据 uiLibType 选择不同的 package.json 文件路径
@@ -45,6 +43,7 @@ export const runViteVue = async (option:IViteVueOption) =>{
         spinner.text = chalk.bgGreenBright.bold( `\ncreate project <${projectName}> success !`)
         spinner.succeed()
     } catch (e){
+        spinner.fail()
         console.log(chalk.bgRedBright.bold(e))
     }
 

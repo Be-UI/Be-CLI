@@ -1,6 +1,6 @@
 import {ICliOption} from '../../utils'
 import { runViteVue } from "./vite-vue";
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 export async function run(option:ICliOption){
     const {
         projectName,
