@@ -26,17 +26,12 @@ jest
 12.集成axios 🐶
 13.多后台环境 🐶
 
-自带指令
-serve:prod 生产后台启动开发服务
-serve:stage 测试后台启动开发服务
-serve:dev 开发后台启动开发服务
-build:prod 生产后台打包
-build:stage 测试后台打包
-build:dev 开发后台打包
-preview 产物预览
-lint:ts eslint修复
-release 发版
-changelog 更新日志
+模板分支 
+ant-design-vue
+element-plus
+windicss
+unocss
+
 
 ## v1.0.1
 ### 纯ts库开发模板
