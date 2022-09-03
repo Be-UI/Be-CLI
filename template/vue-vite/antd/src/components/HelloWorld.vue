@@ -5,7 +5,7 @@ defineProps<{ msg: string }>()
 <template>
   <div class="title">
     <img src="src/assets/images/logo.png">
-    <h1 class="titles">
+    <h1>
       {{ msg }}
     </h1>
   </div>
@@ -33,7 +33,10 @@ defineProps<{ msg: string }>()
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  font-size: 18px;
+  h1{
+    margin: 0;
+  }
   img{
     width: 40px;
     height: 40px;

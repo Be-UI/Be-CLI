@@ -62,6 +62,30 @@ export const runViteVue = async (option: IViteVueOption) => {
 
     if (cssLibType === 'unocss') {
       console.log(chalk.bgBlueBright.bold('\nstart setting unocss ...'))
+
+      // package.json添加依赖
+      packageJson.devDependencies['unocss'] = '^0.45.6'
+      packageJson.devDependencies['@unocss/preset-icons'] = '^0.45.6'
+      packageJson.devDependencies['@unocss/reset'] = '^0.45.6'
+      packageJson.devDependencies['@iconify-json/ph'] = '^1.1.2'
+
+      // 添加 unocss.config
+      await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
+      await fs.ensureDirSync(projectPath)
+
+      // 修改 main.ts
+      const mainContext = await fs.readFile(`${projectPath}/src/main.ts`)
+      await fs.outputFileSync(
+          `${projectPath}/src/main.ts`,
+          `import '@unocss/reset/tailwind.css'\nimport 'uno.css'\n${mainContext.toString()}`)
+      // 修改 vite.config.ts
+      const importWindicss = 'import Unocss from \'unocss/vite\''
+      const pluginWindicss = 'Unocss(),'
+      const viteConfigContext = await fs.readFile(`${projectPath}/vite.config.ts`)
+      let viteCongfiRes = viteConfigContext.toString()
+      viteCongfiRes = viteCongfiRes.replace('// IMPORT_FLAG', importWindicss)
+      viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
+      await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
       console.log(chalk.bgGreenBright.bold('\nset unocss success !'))
     }
 
