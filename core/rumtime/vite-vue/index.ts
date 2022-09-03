@@ -22,7 +22,7 @@ export const runViteVue = async (option: IViteVueOption) => {
   }
   const spinner = ora('Loading').start()
   try {
-    // 复制模板项目到目标路径
+    // 复制模板项目到目标路径（vue -> element-plus / antd vue ）
     spinner.color = 'blue'
     await fs.copySync(templatePath[uiLibType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
@@ -32,6 +32,7 @@ export const runViteVue = async (option: IViteVueOption) => {
     const packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
     packageJson.name = projectName
 
+    // 设置windicss 或 unocss
     if (cssLibType === 'windicss') {
       console.log(chalk.bgBlueBright.bold('\nstart setting windicss ...'))
 
