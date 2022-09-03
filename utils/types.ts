@@ -1,27 +1,28 @@
 export interface IPackageInfo {
-    name: string,
-    version: string,
-    description: string,
-    author: string
+  name: string
+  version: string
+  description: string
+  author: string
 }
 export interface IViteVueOption {
-    projectName:string
-    projectPath:string
-    uiLibType:string
+  projectName: string
+  projectPath: string
+  uiLibType: string
+  cssLibType: string
 }
 
-export interface ICliOption extends IViteVueOption{
-    projectType:string
+export interface ICliOption extends IViteVueOption {
+  projectType: string
 }
 
 export interface ISpawnOptions {
-    cwd?: string
-    env?: object
-    argv0?: string
-    stdio?: string
-    detach?: boolean
-    uid?: number
-    gid?: number
-    shell?: boolean | string
-    timeout?: number
+  cwd?: string
+  env?: object
+  argv0?: string
+  stdio?: string
+  detach?: boolean
+  uid?: number
+  gid?: number
+  shell?: boolean | string
+  timeout?: number
 }

@@ -1,5 +1,5 @@
-import * as prompts from 'prompts'
-import {PROJECTTYPE, UILIBTYPE, CSSLIBTYPE} from "./enums";
+import type * as prompts from 'prompts'
+import { CSSLIBTYPE, PROJECTTYPE, UILIBTYPE } from './enums'
 
 export const projectNameOptions = [{
   type: 'text',
@@ -18,17 +18,6 @@ export const projectTypeOptions = [{
   }),
 }] as prompts.PromptObject[]
 
-export const uiTypeOptions = [{
-  type: 'select',
-  name: 'uiType',
-  message: 'please choose to use ui component library or css atom library',
-  choices: ['ui component library', 'css atom library'].map((item, index) => {
-    const valueDict = ['ui', 'css']
-    // 选择时的标题和选择时的值
-    return { title: item, value: valueDict[index] }
-  }),
-}] as prompts.PromptObject[]
-
 export const uiLibTypeOptions = [{
   type: 'select',
   name: 'uiLibType',
@@ -42,10 +31,10 @@ export const uiLibTypeOptions = [{
 
 export const cssLibTypeOptions = [{
   type: 'select',
-  name: 'uiLibType',
+  name: 'cssLibType',
   message: 'please select a css atom library',
-  choices: ['windicss', 'unocss'].map((item, index) => {
-    const valueDict = [CSSLIBTYPE.WINDICSS, CSSLIBTYPE.UNOCSS]
+  choices: ['windicss', 'unocss', 'Don\'t need'].map((item, index) => {
+    const valueDict = [CSSLIBTYPE.WINDICSS, CSSLIBTYPE.UNOCSS, 'no']
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }
   }),

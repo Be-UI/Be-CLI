@@ -1,11 +1,11 @@
 {
   "name": "be-test-cli",
+  "type": "module",
   "version": "1.1.12",
   "private": false,
   "description": "a project template cli",
   "author": "baiwusanyu-c",
   "license": "MIT",
-  "type": "module",
   "keywords": [
     "vue3",
     "react",
