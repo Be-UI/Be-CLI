@@ -17,7 +17,7 @@ Be-cli
 -》可选集成ant-design-vue -》集成sass-》自动前缀、rem转化 🐶
 element-plus -》集成sass-》自动前缀、rem转化🐶
 -》可选集成windicss、(windi.config,main.ts,package.json、vite.config)🐶
-unocss
+unocss 🐶
 9.集成图片压缩 🐶
 10.适当的打包优化集成
 11.选择集成单元测试
