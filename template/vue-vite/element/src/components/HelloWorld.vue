@@ -1,40 +1,58 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 defineProps<{ msg: string }>()
-
-const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">
-      count is {{ count }}
-    </button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div class="title">
+    <img src="src/assets/images/logo.png">
+    <h1 class="titles">
+      {{ msg }}
+    </h1>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite starter
+  <p class="description">
+    A cli for quickly generating project templates, supporting vite, vue3, react, element-plus, ant design, windicss, unocss
   </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">
-    Click on the Vite and Vue logos to learn more
-  </p>
+  <div class="logo">
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="src/assets/images/vue.png">
+    </a>
+    <a href="https://vitejs.dev/" target="_blank">
+      <img src="src/assets/images/vite.png" class="vite-logo">
+    </a>
+    <a href="https://element-plus.org/" target="_blank">
+      <img src="src/assets/images/element.png">
+    </a>
+    <a href="https://github.com/Be-UI/Be-CLI" target="_blank">
+      <img src="src/assets/images/logo.png">
+    </a>
+  </div>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<style scoped lang="scss">
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+  }
+}
+.description{
+  margin: 10px 0;
+  width: 200px;
+  text-align: center;
+}
+.logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+  }
 }
 </style>

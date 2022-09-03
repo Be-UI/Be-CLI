@@ -11,21 +11,21 @@
  * chore：构建过程或辅助工具的变动
  */
 module.exports = {
-  extends: ["@commitlint/config-conventional"],
+  extends: ['@commitlint/config-conventional'],
   rules: {
-    "type-enum": [
+    'type-enum': [
       2,
-      "always",
+      'always',
       [
-        "feat",
-        "update",
-        "fix",
-        "refactor",
-        "optimize",
-        "style",
-        "doc",
-        "chore",
+        'feat',
+        'update',
+        'fix',
+        'refactor',
+        'optimize',
+        'style',
+        'doc',
+        'chore',
       ],
     ],
   },
-};
+}

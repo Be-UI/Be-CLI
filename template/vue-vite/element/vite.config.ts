@@ -17,6 +17,9 @@ export default defineConfig({
     }),
   ],
   envDir: './env',
+  css: {
+    postcss: 'postcss.config.cjs',
+  },
   build: {
     commonjsOptions: {
       ignoreTryCatch: false,

@@ -4,7 +4,7 @@ interface IHome {
 }
 export async function getHomeData(params: IHome) {
   const res = await request('home/data', {
-    params
+    params,
   })
   return res
 }

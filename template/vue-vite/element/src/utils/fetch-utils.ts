@@ -22,20 +22,6 @@ export interface IHeader {
 }
 
 /**
- * 请求拦截,这里你可以做一些操作
- */
-export function interceptorsRequest(url: string, config: IReqConfig) {
-  const contentType: string = setContentType(config)
-  const reqUrl = setRequestUrl(url)
-  const headers = setHeader(contentType, config)
-  return {
-    contentType,
-    reqUrl,
-    headers,
-  }
-}
-
-/**
  * 设置contentType
  * @param config
  */
@@ -65,6 +51,19 @@ const setHeader = (contentType: string, config?: IReqConfig) => {
     token,
     'Content-Type': contentType,
   } as IHeader)
+}
+/**
+ * 请求拦截,这里你可以做一些操作
+ */
+export function interceptorsRequest(url: string, config: IReqConfig) {
+  const contentType: string = setContentType(config)
+  const reqUrl = setRequestUrl(url)
+  const headers = setHeader(contentType, config)
+  return {
+    contentType,
+    reqUrl,
+    headers,
+  }
 }
 
 /**

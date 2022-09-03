@@ -14,10 +14,10 @@
     "skipLibCheck": true
   },
   "include": [
-    "project/src/**/*.ts",
-    "project/src/**/*.d.ts",
-    "project/src/**/*.tsx",
-    "project/src/**/*.vue"
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ],
   "references": [{ "path": "./tsconfig.node.json"}]
 }
