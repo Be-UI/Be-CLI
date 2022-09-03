@@ -9,7 +9,7 @@ export const getConfigFile = (): IPackageInfo => {
   return JSON.parse(content) as IPackageInfo
 }
 
-export const promptsRun = async (option:prompts.PromptObject ) => {
+export const promptsRun = async (option:prompts.PromptObject[] ) => {
   const res = await prompts(option)
   return { ...res }
 }
