@@ -1,8 +1,8 @@
 {
   "name": "vue-vite-antd",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode stage",
@@ -18,13 +18,13 @@
     "optimizeImages": "tiny --once"
   },
   "dependencies": {
+    "ant-design-vue": "^3.2.12",
     "axios": "^0.27.2",
     "pinia": "^2.0.17",
     "postcss-px-to-viewport-8-plugin": "^1.1.5",
     "qs": "^6.11.0",
     "vue": "^3.2.37",
-    "vue-router": "4.1.3",
-    "ant-design-vue": "^3.2.12"
+    "vue-router": "4.1.3"
   },
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.6",
