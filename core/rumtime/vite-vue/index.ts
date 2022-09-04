@@ -65,7 +65,7 @@ export const runViteVue = async (option: IViteVueOption) => {
       console.log(chalk.bgBlueBright.bold('\nstart setting unocss ...'))
 
       // package.json添加依赖
-      packageJson.devDependencies['unocss'] = '^0.45.6'
+      packageJson.devDependencies.unocss = '^0.45.6'
       packageJson.devDependencies['@unocss/preset-icons'] = '^0.45.6'
       packageJson.devDependencies['@unocss/reset'] = '^0.45.6'
       packageJson.devDependencies['@iconify-json/ph'] = '^1.1.2'
@@ -91,17 +91,17 @@ export const runViteVue = async (option: IViteVueOption) => {
     }
 
     // 设置vitest 或 jest
-    if(unitTestLibType === 'vitest'){
+    if (unitTestLibType === 'vitest') {
       console.log(chalk.bgBlueBright.bold('\nstart setting vitest ...'))
 
       // package.json添加依赖
       packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
       packageJson.devDependencies['@vitest/ui'] = '0.22.1'
-      packageJson.devDependencies['vitest'] = '0.22.1'
-      packageJson.devDependencies['jsdom'] = '^20.0.0'
+      packageJson.devDependencies.vitest = '0.22.1'
+      packageJson.devDependencies.jsdom = '^20.0.0'
 
       // package.json添加指令
-      packageJson.scripts['test'] = 'vitest'
+      packageJson.scripts.test = 'vitest'
       packageJson.scripts['test:update'] = 'vitest -u'
       packageJson.scripts['test:coverage'] = 'vitest --coverage'
 
@@ -110,11 +110,11 @@ export const runViteVue = async (option: IViteVueOption) => {
       console.log(chalk.bgGreenBright.bold('\nset vitest success !'))
     }
 
-    if(unitTestLibType === 'jest'){
+    if (unitTestLibType === 'jest') {
       console.log(chalk.bgBlueBright.bold('\nstart setting jest ...'))
       // package.json添加依赖
       packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
-      packageJson.devDependencies['jest'] = '^27.5.1'
+      packageJson.devDependencies.jest = '^27.5.1'
       packageJson.devDependencies['jest-environment-jsdom'] = '^27.5.1'
       packageJson.devDependencies['ts-jest'] = '27.1.4'
       packageJson.devDependencies['@vue/vue3-jest'] = '^27.0.0'
@@ -126,7 +126,7 @@ export const runViteVue = async (option: IViteVueOption) => {
       packageJson.devDependencies['@babel/preset-typescript'] = '^7.16.7'
 
       // package.json添加指令
-      packageJson.scripts['test'] = 'jest'
+      packageJson.scripts.test = 'jest'
       packageJson.scripts['test:coverage'] = 'jest --coverage'
 
       // 移动处理 jest.config.cjs

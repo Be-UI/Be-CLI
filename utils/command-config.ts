@@ -1,5 +1,5 @@
 import type * as prompts from 'prompts'
-import {CSSLIBTYPE, PROJECTTYPE, UILIBTYPE, UNITTESTLIBTYPE} from './enums'
+import { CSSLIBTYPE, PROJECTTYPE, UILIBTYPE, UNITTESTLIBTYPE } from './enums'
 
 export const projectNameOptions = [{
   type: 'text',
