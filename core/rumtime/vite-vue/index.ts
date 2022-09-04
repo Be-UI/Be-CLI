@@ -9,6 +9,7 @@ export const runViteVue = async (option: IViteVueOption) => {
     projectPath,
     uiLibType,
     cssLibType,
+    unitTestLibType,
   } = option
   // 模版复制时过滤的文件
   const filterFile = (src: string) => {
@@ -87,6 +88,17 @@ export const runViteVue = async (option: IViteVueOption) => {
       viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
       await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
       console.log(chalk.bgGreenBright.bold('\nset unocss success !'))
+    }
+
+    // 设置vitest 或 jest
+    if(unitTestLibType === 'vitest'){
+      console.log(chalk.bgBlueBright.bold('\nstart setting vitest ...'))
+      console.log(chalk.bgGreenBright.bold('\nset vitest success !'))
+    }
+
+    if(unitTestLibType === 'jest'){
+      console.log(chalk.bgBlueBright.bold('\nstart setting jest ...'))
+      console.log(chalk.bgGreenBright.bold('\nset jest success !'))
     }
 
     // 写入package.json

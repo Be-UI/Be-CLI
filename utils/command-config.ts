@@ -1,5 +1,5 @@
 import type * as prompts from 'prompts'
-import { CSSLIBTYPE, PROJECTTYPE, UILIBTYPE } from './enums'
+import {CSSLIBTYPE, PROJECTTYPE, UILIBTYPE, UNITTESTLIBTYPE} from './enums'
 
 export const projectNameOptions = [{
   type: 'text',
@@ -35,6 +35,17 @@ export const cssLibTypeOptions = [{
   message: 'please select a css atom library',
   choices: ['windicss', 'unocss', 'Don\'t need'].map((item, index) => {
     const valueDict = [CSSLIBTYPE.WINDICSS, CSSLIBTYPE.UNOCSS, 'no']
+    // 选择时的标题和选择时的值
+    return { title: item, value: valueDict[index] }
+  }),
+}] as prompts.PromptObject[]
+
+export const unitTestTypeOptions = [{
+  type: 'select',
+  name: 'unitTestLibType',
+  message: 'please select a unit test library',
+  choices: ['vitest', 'jest', 'Don\'t need'].map((item, index) => {
+    const valueDict = [UNITTESTLIBTYPE.VITEST, UNITTESTLIBTYPE.JEST, 'no']
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }
   }),
