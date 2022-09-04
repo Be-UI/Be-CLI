@@ -57,7 +57,7 @@ This template should help get you started developing with Vue or React and Types
 #### Install
 
 ```` 1. shell
-$ pnpm install be-cli --global
+$ pnpm install be-ui-cli --global
 ````
 
 #### 2.Input your project name
