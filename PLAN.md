@@ -13,13 +13,13 @@ Be-cli
 5.集成tsx 🐶
 6.集成版本日志 changelog 🐶
 7.集成发版bumpp 🐶
-8.选择集成 UI组件库 or 原子CSS
+8.选择集成 UI组件库 or 原子CSS 🐶
 -》可选集成ant-design-vue -》集成sass-》自动前缀、rem转化 🐶
 element-plus -》集成sass-》自动前缀、rem转化🐶
 -》可选集成windicss、(windi.config,main.ts,package.json、vite.config)🐶
 unocss 🐶
 9.集成图片压缩 🐶
-10.适当的打包优化集成
+10.适当的打包优化集成 🐶
 11.选择集成单元测试
 -》可选集成vitest、
 jest
