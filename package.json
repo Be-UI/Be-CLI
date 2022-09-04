@@ -1,7 +1,7 @@
 {
   "name": "be-cli",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "A cli for quickly generating project template",
   "author": "baiwusanyu-c",
