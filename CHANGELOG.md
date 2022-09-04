@@ -1,4 +1,13 @@
-# 1.0.0 (2022-09-04)
+## [1.0.1](https://github.com/Be-UI/Be-CLI/compare/v1.0.0...v1.0.1) (2022-09-04)
+
+
+### Features
+
+* template project add jest ([754cf7c](https://github.com/Be-UI/Be-CLI/commit/754cf7c3915bd8014dbaa2f3dc39829e8c7dfee4))
+
+
+
+# [1.0.0](https://github.com/Be-UI/Be-CLI/compare/bae077c1d5f41bd596e68d148bb08c64d25cb1cd...v1.0.0) (2022-09-04)
 
 
 ### Bug Fixes
