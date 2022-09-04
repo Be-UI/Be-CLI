@@ -13,3 +13,8 @@ export enum CSSLIBTYPE {
   WINDICSS = 'windicss',
   UNOCSS = 'unocss',
 }
+
+export enum UNITTESTLIBTYPE {
+  JEST = 'jest',
+  VITEST = 'vitest',
+}

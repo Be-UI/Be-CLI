@@ -8,6 +8,7 @@ export async function run(option: ICliOption) {
     projectPath,
     uiLibType,
     cssLibType,
+    unitTestLibType,
   } = option
 
   if (projectType === 'vue') {
@@ -17,6 +18,7 @@ export async function run(option: ICliOption) {
       projectPath,
       uiLibType,
       cssLibType,
+      unitTestLibType,
     }
     await runViteVue(viteVueOption)
   }

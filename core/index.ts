@@ -11,7 +11,7 @@ import {
   projectNameOptions,
   projectTypeOptions,
   promptsRun,
-  uiLibTypeOptions,
+  uiLibTypeOptions, unitTestTypeOptions,
 } from '../utils'
 import { run } from './rumtime/runtime'
 
@@ -34,12 +34,14 @@ program.action(async () => {
   const componentUiRes = await promptsRun(uiLibTypeOptions)
   // 选择使用那个css原子样式库
   const cssUiRes = await promptsRun(cssLibTypeOptions)
+  // 选择使用单元测试
+  const unitTestRes = await promptsRun(unitTestTypeOptions)
 
   // 项目存储路径
   const rootPath = process.cwd()
   const projectPath = path.resolve(rootPath, nameRes.projectName)
   // 组装配置对象
-  const options = { ...nameRes, ...typeRes, projectPath, ...cssUiRes, ...componentUiRes } as any
+  const options = { ...nameRes, ...typeRes, projectPath, ...cssUiRes, ...componentUiRes, ...unitTestRes } as any
   // 开始运行命令
   await run(options)
 })

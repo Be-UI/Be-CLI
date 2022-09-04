@@ -10,6 +10,8 @@ export const templatePath = {
   antd: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/antd'),
   windicss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/windicss'),
   unocss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/unocss'),
+  vitest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest'),
+  jest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/jest'),
 }
 
 const cliPackageFilePath = process.env.ENV === 'BECLIDEV' ? 'package.json' : '../package.json'

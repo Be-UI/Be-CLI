@@ -9,6 +9,7 @@ export interface IViteVueOption {
   projectPath: string
   uiLibType: string
   cssLibType: string
+  unitTestLibType: string
 }
 
 export interface ICliOption extends IViteVueOption {
