@@ -63,6 +63,7 @@ $ pnpm install be-ui-cli --global
 #### 2.Input your project name
 
 ```` shell
+$ sudo be-ui-cli
 ? please input your project name › be-cli-project
 ````
 

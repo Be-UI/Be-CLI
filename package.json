@@ -23,7 +23,7 @@
     "jest"
   ],
   "bin": {
-    "be-cli": "entry/index.js"
+    "be-ui-cli": "entry/index.js"
   },
   "files": [
     "dist",
