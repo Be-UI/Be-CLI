@@ -105,13 +105,32 @@ export const runViteVue = async (option: IViteVueOption) => {
       packageJson.scripts['test:update'] = 'vitest -u'
       packageJson.scripts['test:coverage'] = 'vitest --coverage'
 
-      // 移动处理vites.config.ts
+      // 移动处理vitest.config.ts
       await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
       console.log(chalk.bgGreenBright.bold('\nset vitest success !'))
     }
 
     if(unitTestLibType === 'jest'){
       console.log(chalk.bgBlueBright.bold('\nstart setting jest ...'))
+      // package.json添加依赖
+      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
+      packageJson.devDependencies['jest'] = '^27.5.1'
+      packageJson.devDependencies['jest-environment-jsdom'] = '^27.5.1'
+      packageJson.devDependencies['ts-jest'] = '27.1.4'
+      packageJson.devDependencies['@vue/vue3-jest'] = '^27.0.0'
+      packageJson.devDependencies['babel-jest'] = '^27.5.1'
+      packageJson.devDependencies['@types/jest'] = '^27.5.1'
+      packageJson.devDependencies['@testing-library/jest-dom'] = '^5.16.4'
+      packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
+      packageJson.devDependencies['@babel/preset-env'] = '^7.17.10'
+      packageJson.devDependencies['@babel/preset-typescript'] = '^7.16.7'
+
+      // package.json添加指令
+      packageJson.scripts['test'] = 'jest'
+      packageJson.scripts['test:coverage'] = 'jest --coverage'
+
+      // 移动处理 jest.config.cjs
+      await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
       console.log(chalk.bgGreenBright.bold('\nset jest success !'))
     }
 

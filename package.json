@@ -1,7 +1,7 @@
 {
-  "name": "be-test-cli",
+  "name": "be-cli",
   "type": "module",
-  "version": "1.1.12",
+  "version": "1.0.0",
   "private": false,
   "description": "a project template cli",
   "author": "baiwusanyu-c",
@@ -14,7 +14,7 @@
     "prettier"
   ],
   "bin": {
-    "be-test-cli": "entry/index.js"
+    "be-cli": "entry/index.js"
   },
   "files": [
     "dist",
