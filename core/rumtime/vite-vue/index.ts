@@ -42,9 +42,9 @@ export const runViteVue = async (option: IViteVueOption) => {
 
       // 添加 windicss.config
       await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
-      await fs.ensureDirSync(projectPath)
 
       // 修改 main.ts
+      await fs.ensureDirSync(projectPath)
       const mainContext = await fs.readFile(`${projectPath}/src/main.ts`)
       await fs.outputFileSync(
           `${projectPath}/src/main.ts`,
@@ -72,9 +72,9 @@ export const runViteVue = async (option: IViteVueOption) => {
 
       // 添加 unocss.config
       await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
-      await fs.ensureDirSync(projectPath)
 
       // 修改 main.ts
+      await fs.ensureDirSync(projectPath)
       const mainContext = await fs.readFile(`${projectPath}/src/main.ts`)
       await fs.outputFileSync(
           `${projectPath}/src/main.ts`,
@@ -93,6 +93,20 @@ export const runViteVue = async (option: IViteVueOption) => {
     // 设置vitest 或 jest
     if(unitTestLibType === 'vitest'){
       console.log(chalk.bgBlueBright.bold('\nstart setting vitest ...'))
+
+      // package.json添加依赖
+      packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
+      packageJson.devDependencies['@vitest/ui'] = '0.22.1'
+      packageJson.devDependencies['vitest'] = '0.22.1'
+      packageJson.devDependencies['jsdom'] = '^20.0.0'
+
+      // package.json添加指令
+      packageJson.scripts['test'] = 'vitest'
+      packageJson.scripts['test:update'] = 'vitest -u'
+      packageJson.scripts['test:coverage'] = 'vitest --coverage'
+
+      // 移动处理vites.config.ts
+      await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
       console.log(chalk.bgGreenBright.bold('\nset vitest success !'))
     }
 
