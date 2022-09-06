@@ -1,7 +1,9 @@
 import chalk from 'chalk'
 import type { ICliOption } from '../../utils'
-import { runViteVue } from './vite-vue'
-export async function run(option: ICliOption) {
+import { runRuntimeVue } from './runtime-vue'
+import {ILibOption, IViteVueOption, PROJECTTYPE} from "../../utils";
+import {runRuntimeLib} from "./runtime-lib";
+export async function run(option: IViteVueOption & ILibOption) {
   const {
     projectName,
     projectType,
@@ -9,17 +11,34 @@ export async function run(option: ICliOption) {
     uiLibType,
     cssLibType,
     unitTestLibType,
+    envType,
+    buildLibType,
   } = option
 
-  if (projectType === 'vue') {
-    console.log(chalk.bgBlueBright.bold(`\nstart creating project <${projectName}> ...`))
+  console.log(chalk.bgBlueBright.bold(`\nstart creating project <${projectName}> ...`))
+
+  if (projectType === PROJECTTYPE.VUE) {
     const viteVueOption = {
       projectName,
       projectPath,
       uiLibType,
       cssLibType,
+      projectType,
       unitTestLibType,
     }
-    await runViteVue(viteVueOption)
+    await runRuntimeVue(viteVueOption)
+    return
+  }
+
+  if(projectType === PROJECTTYPE.LIB){
+    const libOption = {
+      projectName,
+      projectPath,
+      projectType,
+      unitTestLibType,
+      envType,
+      buildLibType,
+    }
+    await runRuntimeLib(libOption)
   }
 }

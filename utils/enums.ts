@@ -18,3 +18,15 @@ export enum UNITTESTLIBTYPE {
   JEST = 'jest',
   VITEST = 'vitest',
 }
+
+export enum BUILDLIBTYPE {
+  ROLLUP = 'rollup',
+  TSUP = 'tsup',
+  UNBUILD = 'unbuild'
+}
+
+export enum RUNENVTYPE {
+  NODE = 'node',
+  BROWSER = 'browser',
+}
+

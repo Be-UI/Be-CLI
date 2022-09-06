@@ -6,31 +6,7 @@ Be-cli
 
 ## v1.0.0
 ### vue3 + vite + ts模板
-1.集成hasky、commitlint 🐶
-2.集成eslint与格式修复 🐶
-3.集成pinia 🐶
-4.集成vue-router 🐶
-5.集成tsx 🐶
-6.集成版本日志 changelog 🐶
-7.集成发版bumpp 🐶
-8.选择集成 UI组件库 or 原子CSS 🐶
--》可选集成ant-design-vue -》集成sass-》自动前缀、rem转化 🐶
-element-plus -》集成sass-》自动前缀、rem转化🐶
--》可选集成windicss、(windi.config,main.ts,package.json、vite.config)🐶
-unocss 🐶
-9.集成图片压缩 🐶
-10.适当的打包优化集成 🐶
-11.选择集成单元测试
--》可选集成vitest、
-jest
-12.集成axios 🐶
-13.多后台环境 🐶
 
-模板分支 
-ant-design-vue
-element-plus
-windicss
-unocss
 
 
 ## v1.0.1
@@ -43,8 +19,11 @@ unocss
 支持指令参数修改环境变量
 
 选择模板
-gulp + rollup
-unbuild + turbo + tsup
+gulp + rollup + turbo
+unbuild + turbo
+tsup + turbo
+
+选择脚本是运行在浏览器还是node
 
 
 ## v1.0.2

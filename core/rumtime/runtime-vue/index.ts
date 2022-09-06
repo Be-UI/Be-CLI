@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import chalk from 'chalk'
 import type { IViteVueOption } from '../../../utils'
 import { templatePath } from '../../../utils'
-export const runViteVue = async (option: IViteVueOption) => {
+export const runRuntimeVue = async (option: IViteVueOption) => {
   const {
     projectName,
     projectPath,

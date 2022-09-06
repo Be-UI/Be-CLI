@@ -1,5 +1,5 @@
 import type * as prompts from 'prompts'
-import { CSSLIBTYPE, PROJECTTYPE, UILIBTYPE, UNITTESTLIBTYPE } from './enums'
+import {BUILDLIBTYPE, CSSLIBTYPE, PROJECTTYPE, RUNENVTYPE, UILIBTYPE, UNITTESTLIBTYPE} from './enums'
 
 export const projectNameOptions = [{
   type: 'text',
@@ -50,3 +50,26 @@ export const unitTestTypeOptions = [{
     return { title: item, value: valueDict[index] }
   }),
 }] as prompts.PromptObject[]
+
+export const buildLibTypeOptions = [{
+  type: 'select',
+  name: 'buildLibType',
+  message: 'please choose your packaging tool',
+  choices: ['tsup', 'unbuild', 'rollup'].map((item, index) => {
+    const valueDict = [BUILDLIBTYPE.TSUP, BUILDLIBTYPE.UNBUILD, BUILDLIBTYPE.ROLLUP]
+    // 选择时的标题和选择时的值
+    return { title: item, value: valueDict[index] }
+  }),
+}] as prompts.PromptObject[]
+
+export const envTypeOptions = [{
+  type: 'select',
+  name: 'envType',
+  message: 'please select your library runtime environment',
+  choices: ['node', 'browser'].map((item, index) => {
+    const valueDict = [RUNENVTYPE.NODE, RUNENVTYPE.BROWSER]
+    // 选择时的标题和选择时的值
+    return { title: item, value: valueDict[index] }
+  }),
+}] as prompts.PromptObject[]
+
