@@ -1,5 +1,4 @@
 import chalk from 'chalk'
-import type { ICliOption } from '../../utils'
 import { runRuntimeVue } from './runtime-vue'
 import {ILibOption, IViteVueOption, PROJECTTYPE} from "../../utils";
 import {runRuntimeLib} from "./runtime-lib";
