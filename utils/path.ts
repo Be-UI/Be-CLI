@@ -13,6 +13,7 @@ export const templatePath = {
   vitest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest'),
   jest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/jest'),
   tsup: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-template/gulp-tsup'),
+  browser: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-play'),
 }
 
 const cliPackageFilePath = process.env.ENV === 'BECLIDEV' ? 'package.json' : '../package.json'
