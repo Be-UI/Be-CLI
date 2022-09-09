@@ -14,7 +14,7 @@ export async function run(option: IViteVueOption & ILibOption) {
     buildLibType,
   } = option
 
-  console.log(chalk.bgBlueBright.bold(`\nstart creating project <${projectName}> ...`))
+  console.log(chalk.blueBright.bold(`\nstart creating project <${projectName}> ...`))
 
   if (projectType === PROJECTTYPE.VUE) {
     const viteVueOption = {

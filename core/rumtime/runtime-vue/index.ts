@@ -28,14 +28,14 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
     await fs.copySync(templatePath[uiLibType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
     // 读取 package.json ，修改名称
-    console.log(chalk.bgBlueBright.bold('\nstart creating package.json ...'))
+    console.log(chalk.blueBright.bold('\nstart creating package.json ...'))
     await fs.ensureDirSync(projectPath)
     const packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
     packageJson.name = projectName
 
     // 设置windicss 或 unocss
     if (cssLibType === 'windicss') {
-      console.log(chalk.bgBlueBright.bold('\nstart setting windicss ...'))
+      console.log(chalk.blueBright.bold('\nstart setting windicss ...'))
 
       // package.json添加依赖
       packageJson.devDependencies['vite-plugin-windicss'] = '^1.8.7'
@@ -58,11 +58,11 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
       viteCongfiRes = viteCongfiRes.replace('// IMPORT_FLAG', importWindicss)
       viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
       await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
-      console.log(chalk.bgGreenBright.bold('\nset windicss success !'))
+      console.log(chalk.greenBright.bold('\nset windicss success !'))
     }
 
     if (cssLibType === 'unocss') {
-      console.log(chalk.bgBlueBright.bold('\nstart setting unocss ...'))
+      console.log(chalk.blueBright.bold('\nstart setting unocss ...'))
 
       // package.json添加依赖
       packageJson.devDependencies.unocss = '^0.45.6'
@@ -87,12 +87,12 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
       viteCongfiRes = viteCongfiRes.replace('// IMPORT_FLAG', importWindicss)
       viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
       await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
-      console.log(chalk.bgGreenBright.bold('\nset unocss success !'))
+      console.log(chalk.greenBright.bold('\nset unocss success !'))
     }
 
     // 设置vitest 或 jest
     if (unitTestLibType === 'vitest') {
-      console.log(chalk.bgBlueBright.bold('\nstart setting vitest ...'))
+      console.log(chalk.blueBright.bold('\nstart setting vitest ...'))
 
       // package.json添加依赖
       packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
@@ -107,11 +107,11 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
 
       // 移动处理vitest.config.ts
       await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
-      console.log(chalk.bgGreenBright.bold('\nset vitest success !'))
+      console.log(chalk.greenBright.bold('\nset vitest success !'))
     }
 
     if (unitTestLibType === 'jest') {
-      console.log(chalk.bgBlueBright.bold('\nstart setting jest ...'))
+      console.log(chalk.blueBright.bold('\nstart setting jest ...'))
       // package.json添加依赖
       packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
       packageJson.devDependencies.jest = '^27.5.1'
@@ -131,18 +131,18 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
 
       // 移动处理 jest.config.cjs
       await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
-      console.log(chalk.bgGreenBright.bold('\nset jest success !'))
+      console.log(chalk.greenBright.bold('\nset jest success !'))
     }
 
     // 写入package.json
     await fs.writeJsonSync(`${projectPath}/package.json`, packageJson, { spaces: 2 })
-    console.log(chalk.bgGreenBright.bold('\ncreate package.json success !'))
+    console.log(chalk.greenBright.bold('\ncreate package.json success !'))
 
-    spinner.text = chalk.bgGreenBright.bold(`\ncreate project <${projectName}> success !`)
+    spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
     spinner.succeed()
   }
   catch (e) {
     spinner.fail()
-    console.log(chalk.bgRedBright.bold(e))
+    console.log(chalk.redBright.bold(e))
   }
 }
