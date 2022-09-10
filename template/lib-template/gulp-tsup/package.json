@@ -1,5 +1,5 @@
 {
-  "name": "@template-node-tsup/lib",
+  "name": "template-node-tsup",
   "type": "module",
   "version": "1.0.0",
   "private": false,

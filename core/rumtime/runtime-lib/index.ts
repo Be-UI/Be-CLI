@@ -2,13 +2,12 @@ import {BUILDLIBTYPE, ILibOption, RUNENVTYPE, templatePath} from "../../../utils
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-
+import readdirp from 'readdirp'
 export const runRuntimeLib = async (option: ILibOption) => {
     console.log(option)
     const {
         projectName,
         projectPath,
-        projectType,
         buildLibType,
         envType,
         unitTestLibType,
@@ -23,6 +22,7 @@ export const runRuntimeLib = async (option: ILibOption) => {
         console.log(chalk.blueBright.bold('\nstart creating package.json ...'))
         await fs.ensureDirSync(projectPath)
         const packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
+        packageJson.name = projectName
 
         // 添加浏览器环境play
         if(envType === RUNENVTYPE.BROWSER){
@@ -63,18 +63,20 @@ export const runRuntimeLib = async (option: ILibOption) => {
             packageJson.devDependencies['@testing-library/jest-dom'] = '^5.16.4'
             packageJson.devDependencies['@babel/preset-env'] = '^7.17.10'
             packageJson.devDependencies['@babel/preset-typescript'] = '^7.16.7'
-
             // package.json添加指令
             packageJson.scripts.test = 'jest'
             packageJson.scripts['test:coverage'] = 'jest --coverage'
-
             // 移动处理 jest.config.cjs
             await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
             console.log(chalk.greenBright.bold('\nset jest success !'))
         }
 
-        // TODO:处理monorepo文件名
-        packageJson.name = projectName
+        for await (const entry of readdirp(projectPath,{fileFilter:['!.DS_Store']})) {
+            const { fullPath } = entry
+            let context = await fs.readFile(`${fullPath}`)
+            let contextStr = context.toString().replace('template-node-tsup',projectName)
+            await fs.outputFileSync(`${fullPath}`, contextStr)
+        }
 
         // 写入package.json
         await fs.writeJsonSync(`${projectPath}/package.json`, packageJson, { spaces: 2 })
