@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/Be-UI/Be-CLI/compare/v1.0.3...v1.0.4) (2022-09-10)
+
+
+### Bug Fixes
+
+* fix  "readdirp" build error ([422ac1c](https://github.com/Be-UI/Be-CLI/commit/422ac1c14ee82f242d875b4194038e5386e6f624))
+
+
+
 ## [1.0.3](https://github.com/Be-UI/Be-CLI/compare/v1.0.2...v1.0.3) (2022-09-10)
 
 
