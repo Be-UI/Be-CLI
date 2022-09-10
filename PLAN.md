@@ -37,17 +37,16 @@ tsup + gulp
 支持多种格式cjs、esm 🐶
 支持总包、分包(分包时替换路径) 🐶
 支持指令参数修改环境变量 🐶
-## v1.3.0
 tsup + gulp
-选择脚本是运行在
-浏览器还是
+选择脚本是运行在 🐶
+浏览器还是 🐶
 node 🐶
 单测集成
 vite
 jest
-## v1.4.0
+## v1.3.0
 unbuild + gulp
-## v1.5.0
+## v1.4.0
 gulp + rollup
 
 

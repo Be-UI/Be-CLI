@@ -34,8 +34,46 @@ export const runRuntimeLib = async (option: ILibOption) => {
             packageJson.scripts.dev = 'pnpm run --filter @template-node-tsup/play dev'
         }
         // 添加单元测试
+        if (unitTestLibType === 'vitest') {
+            console.log(chalk.blueBright.bold('\nstart setting vitest ...'))
+            // package.json添加依赖
+            packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
+            packageJson.devDependencies['@vitest/ui'] = '0.22.1'
+            packageJson.devDependencies.vitest = '0.22.1'
+            packageJson.devDependencies.jsdom = '^20.0.0'
 
-        // 处理monorepo文件名
+            // package.json添加指令
+            packageJson.scripts.test = 'vitest'
+            packageJson.scripts['test:update'] = 'vitest -u'
+            packageJson.scripts['test:coverage'] = 'vitest --coverage'
+
+            // 移动处理vitest.config.ts
+            await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
+            console.log(chalk.greenBright.bold('\nset vitest success !'))
+        }
+
+        if (unitTestLibType === 'jest') {
+            console.log(chalk.blueBright.bold('\nstart setting jest ...'))
+            // package.json添加依赖
+            packageJson.devDependencies.jest = '^27.5.1'
+            packageJson.devDependencies['jest-environment-jsdom'] = '^27.5.1'
+            packageJson.devDependencies['ts-jest'] = '27.1.4'
+            packageJson.devDependencies['babel-jest'] = '^27.5.1'
+            packageJson.devDependencies['@types/jest'] = '^27.5.1'
+            packageJson.devDependencies['@testing-library/jest-dom'] = '^5.16.4'
+            packageJson.devDependencies['@babel/preset-env'] = '^7.17.10'
+            packageJson.devDependencies['@babel/preset-typescript'] = '^7.16.7'
+
+            // package.json添加指令
+            packageJson.scripts.test = 'jest'
+            packageJson.scripts['test:coverage'] = 'jest --coverage'
+
+            // 移动处理 jest.config.cjs
+            await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
+            console.log(chalk.greenBright.bold('\nset jest success !'))
+        }
+
+        // TODO:处理monorepo文件名
         packageJson.name = projectName
 
         // 写入package.json
