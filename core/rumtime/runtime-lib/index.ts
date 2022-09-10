@@ -2,7 +2,7 @@ import {BUILDLIBTYPE, ILibOption, RUNENVTYPE, templatePath} from "../../../utils
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import readdirp from 'readdirp'
+import readdirp from 'readdirp';
 export const runRuntimeLib = async (option: ILibOption) => {
     console.log(option)
     const {

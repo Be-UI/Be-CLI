@@ -6,7 +6,7 @@ import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 const config = [
   {
-    external: [id => /.test.js/.test(id), 'ora', 'fs-extra', 'chalk', 'commander', 'prompts'],
+    external: [id => /.test.js/.test(id), 'ora', 'fs-extra', 'chalk', 'commander', 'prompts','readdirp'],
     input: './core/index.ts', // 必须，入口文件
     output: [
       {
