@@ -1,3 +1,16 @@
+## [1.0.3](https://github.com/Be-UI/Be-CLI/compare/v1.0.2...v1.0.3) (2022-09-10)
+
+
+### Features
+
+* add lib template 'gulp-tsup' ([b475f31](https://github.com/Be-UI/Be-CLI/commit/b475f319078893d67a4020ae73db4d95483167d3))
+* add lib template 'gulp-tsup' modify the name ([c4581a0](https://github.com/Be-UI/Be-CLI/commit/c4581a0b262eb77533a4e1f7b8826276ef592606))
+* add lib template 'gulp-tsup' playground ([2e44e5f](https://github.com/Be-UI/Be-CLI/commit/2e44e5f5cb0fdec1e0b2c59553d38dccf1237f56))
+* add lib template 'gulp-tsup' unit test config ([b72ae28](https://github.com/Be-UI/Be-CLI/commit/b72ae286d247ef9f526f65a50e96aae89ddc2b6e))
+* The main process of `lib template` is written ([7ab3901](https://github.com/Be-UI/Be-CLI/commit/7ab3901cee5b4d40840fcb257626fa938fb79034))
+
+
+
 ## [1.0.2](https://github.com/Be-UI/Be-CLI/compare/v1.0.1...v1.0.2) (2022-09-04)
 
 
