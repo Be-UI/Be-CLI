@@ -1,0 +1,16 @@
+{
+  "name": "@template-node-tsup/runtime",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@template-node-tsup/utils": "*"
+  }
+}

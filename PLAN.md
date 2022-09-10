@@ -26,26 +26,36 @@ jest
 12.集成axios 🐶
 13.多后台环境 🐶
 
-模板分支 
-ant-design-vue
-element-plus
-windicss
-unocss
 
-
-## v1.0.1
+## v1.2.0
 ### 纯ts库开发模板
-支持热更新开发调试，自定打包义脚本，
-支持打包类型生成、
-支持产物压缩
-支持多种格式cjs、esm
-支持总包、分包
-支持指令参数修改环境变量
+tsup + gulp
+支持热更新开发调试 🐶
+自定打包义脚本，🐶
+支持打包类型生成、🐶
+支持产物压缩 🐶
+支持多种格式cjs、esm 🐶
+支持总包、分包(分包时替换路径) 🐶
+支持指令参数修改环境变量 🐶
+tsup + gulp
+选择脚本是运行在 🐶
+浏览器还是 🐶
+node 🐶
+单测集成
+vite
+jest
+## v1.3.0
+unbuild + gulp
+## v1.4.0
+gulp + rollup
+
+
 
 选择模板
-gulp + rollup
-unbuild + turbo + tsup
+gulp + rollup 
+unbuild + gulp
+tsup + gulp
 
 
-## v1.0.2
+## v1.x.x
 react + vite 模板

@@ -10,8 +10,12 @@ export const templatePath = {
   antd: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/antd'),
   windicss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/windicss'),
   unocss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/unocss'),
-  vitest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest'),
-  jest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/jest'),
+  vitest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest-vue-react'),
+  vitestLib: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest-lib'),
+  jest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/jest-vue-react'),
+  jestLib: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/jest-lib'),
+  tsup: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-template/gulp-tsup'),
+  browser: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-play'),
 }
 
 const cliPackageFilePath = process.env.ENV === 'BECLIDEV' ? 'package.json' : '../package.json'

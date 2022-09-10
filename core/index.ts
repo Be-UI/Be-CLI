@@ -6,9 +6,10 @@
 import * as path from 'path'
 import { Command } from 'commander'
 import {
-  cssLibTypeOptions,
+  buildLibTypeOptions,
+  cssLibTypeOptions, envTypeOptions,
   getConfigFile,
-  projectNameOptions,
+  projectNameOptions, PROJECTTYPE,
   projectTypeOptions,
   promptsRun,
   uiLibTypeOptions, unitTestTypeOptions,
@@ -30,10 +31,22 @@ program.action(async () => {
   // 选择项目模板类型
   const typeRes = await promptsRun(projectTypeOptions)
 
-  // 选择使用那个组件库
-  const componentUiRes = await promptsRun(uiLibTypeOptions)
-  // 选择使用那个css原子样式库
-  const cssUiRes = await promptsRun(cssLibTypeOptions)
+  let componentUiRes = {}
+  let cssUiRes = {}
+  let buildRes = {}
+  let runEnvRes = {}
+  if(typeRes.projectType !== PROJECTTYPE.LIB){
+    // 选择使用那个组件库
+    componentUiRes = await promptsRun(uiLibTypeOptions)
+    // 选择使用那个css原子样式库
+     cssUiRes = await promptsRun(cssLibTypeOptions)
+  }else{
+    // 选择使用那个打包库
+    buildRes = await promptsRun(buildLibTypeOptions)
+    // 选择使用那个运行环境
+    runEnvRes = await promptsRun(envTypeOptions)
+  }
+
   // 选择使用单元测试
   const unitTestRes = await promptsRun(unitTestTypeOptions)
 
@@ -41,7 +54,15 @@ program.action(async () => {
   const rootPath = process.cwd()
   const projectPath = path.resolve(rootPath, nameRes.projectName)
   // 组装配置对象
-  const options = { ...nameRes, ...typeRes, projectPath, ...cssUiRes, ...componentUiRes, ...unitTestRes } as any
+  const options = {
+    projectPath,
+    ...componentUiRes,
+    ...cssUiRes,
+    ...buildRes,
+    ...runEnvRes,
+    ...nameRes,
+    ...typeRes,
+    ...unitTestRes } as any
   // 开始运行命令
   await run(options)
 })
