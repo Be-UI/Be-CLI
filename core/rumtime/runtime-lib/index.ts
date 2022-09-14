@@ -26,9 +26,9 @@ export const runRuntimeLib = async (option: ILibOption) => {
 
         // 添加浏览器环境play
         if(envType === RUNENVTYPE.BROWSER){
-            // 1.移删除node下dist
+            // 1.移删除node下dist的play
             await fs.removeSync(`${projectPath}/play`)
-            // 2.移动browser到play到dist
+            // 2.移动browser的play到dist
             await fs.copySync(templatePath[envType as keyof typeof templatePath], `${projectPath}/play`)
             // 3.修改package.json dev指令为play的dev指令
             packageJson.scripts.dev = 'pnpm run --filter @template-node-tsup/play dev'

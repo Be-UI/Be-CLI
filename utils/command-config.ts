@@ -55,8 +55,8 @@ export const buildLibTypeOptions = [{
   type: 'select',
   name: 'buildLibType',
   message: 'please choose your packaging tool',
-  choices: ['tsup', 'unbuild', 'rollup'].map((item, index) => {
-    const valueDict = [BUILDLIBTYPE.TSUP, BUILDLIBTYPE.UNBUILD, BUILDLIBTYPE.ROLLUP]
+  choices: ['tsup', 'rollup'].map((item, index) => {
+    const valueDict = [BUILDLIBTYPE.TSUP, BUILDLIBTYPE.ROLLUP]
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }
   }),

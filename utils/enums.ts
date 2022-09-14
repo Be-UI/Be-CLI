@@ -22,7 +22,6 @@ export enum UNITTESTLIBTYPE {
 export enum BUILDLIBTYPE {
   ROLLUP = 'rollup',
   TSUP = 'tsup',
-  UNBUILD = 'unbuild'
 }
 
 export enum RUNENVTYPE {

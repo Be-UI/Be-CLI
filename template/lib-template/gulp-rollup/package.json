@@ -60,6 +60,7 @@
     "@template-node-tsup/play": "*",
     "@template-node-tsup/runtime": "*",
     "@template-node-tsup/utils": "*",
+    "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.0.0",
     "bumpp": "^8.2.1",
