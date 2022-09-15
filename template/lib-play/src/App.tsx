@@ -1,7 +1,7 @@
 
 import {useState} from 'react'
 import reactLogo from './assets/react.svg'
-import {runtimeBrowser} from '@template-node-tsup/entry'
+import {runtimeBrowser} from '@template-play/entry'
 import './App.css'
 // @ts-ignore
 import {ABTest} from '../../dist/web/esm/ab-test-sdk-web.esm'
