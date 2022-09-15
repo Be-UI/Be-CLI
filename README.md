@@ -3,7 +3,7 @@
 style="display:block; margin:0 auto;" 
 src="https://avatars.githubusercontent.com/u/111622499?s=200&v=4" 
 alt="A cli for quickly generating project templates, supporting vite, vue3, react, element-plus, ant design, windicss, unocss">
-Be-CLI
+<p align='center' style="font-size: 30px;font-family: 'PingFang HK',sans-serif">Be-CLI</p>
 </p>
 
 <p align='center' style="font-size: 16px;font-family: 'PingFang HK',sans-serif">

@@ -1,4 +1,4 @@
-import {BUILDLIBTYPE, ILibOption, RUNENVTYPE, templatePath} from "../../../utils";
+import {ILibOption, libTemplateName, RUNENVTYPE, templatePath} from "../../../utils";
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
@@ -17,23 +17,26 @@ export const runRuntimeLib = async (option: ILibOption) => {
         // 复制模板项目到目标路径
         spinner.color = 'blue'
         await fs.copySync(templatePath[buildLibType as keyof typeof templatePath], projectPath)
+        const templateName = libTemplateName[buildLibType as keyof typeof libTemplateName]
 
         // 读取 package.json
         console.log(chalk.blueBright.bold('\nstart creating package.json ...'))
         await fs.ensureDirSync(projectPath)
-        const packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
-        packageJson.name = projectName
+        let packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
+        let packageJsonStr = JSON.stringify(packageJson).replaceAll(templateName,projectName)
+        packageJson = JSON.parse(packageJsonStr)
 
         // 添加浏览器环境play
         if(envType === RUNENVTYPE.BROWSER){
+            const libTemplatePath = templatePath[envType as keyof typeof templatePath]
             // 1.移删除node下dist的play
             await fs.removeSync(`${projectPath}/play`)
             // 2.移动browser的play到dist
-            await fs.copySync(templatePath[envType as keyof typeof templatePath], `${projectPath}/play`)
-            // 3.修改package.json dev指令为play的dev指令
-            packageJson.scripts.dev = 'pnpm run --filter @template-node-tsup/play dev'
+            await fs.copySync(libTemplatePath, `${projectPath}/play`)
+            // 3.修改主仓库 package.json dev指令为play的dev指令
+            packageJson.scripts.dev = `pnpm run --filter @${projectName}/play dev`
         }
-        // 添加单元测试
+        // 添加单元测试 vitest
         if (unitTestLibType === 'vitest') {
             console.log(chalk.blueBright.bold('\nstart setting vitest ...'))
             // package.json添加依赖
@@ -51,7 +54,7 @@ export const runRuntimeLib = async (option: ILibOption) => {
             await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
             console.log(chalk.greenBright.bold('\nset vitest success !'))
         }
-
+        // 添加单元测试 jest
         if (unitTestLibType === 'jest') {
             console.log(chalk.blueBright.bold('\nstart setting jest ...'))
             // package.json添加依赖
@@ -74,7 +77,14 @@ export const runRuntimeLib = async (option: ILibOption) => {
         for await (const entry of readdirp(projectPath,{fileFilter:['!.DS_Store']})) {
             const { fullPath } = entry
             let context = await fs.readFile(`${fullPath}`)
-            let contextStr = context.toString().replace('template-node-tsup',projectName)
+            let contextStr = context.toString().replaceAll(templateName,projectName)
+            await fs.outputFileSync(`${fullPath}`, contextStr)
+        }
+        // 修改 play 的子仓库名
+        for await (const entry of readdirp(`${projectPath}/play`,{fileFilter:['!.DS_Store']})) {
+            const { fullPath } = entry
+            let context = await fs.readFile(`${fullPath}`)
+            let contextStr = context.toString().replaceAll('template-play',projectName)
             await fs.outputFileSync(`${fullPath}`, contextStr)
         }
 

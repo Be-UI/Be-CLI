@@ -12,6 +12,6 @@
   },
 
   "devDependencies": {
-    "@template-node-tsup/entry": "*"
+    "@template-node-rollup/entry": "*"
   }
 }
