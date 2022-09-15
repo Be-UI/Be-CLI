@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/Be-UI/Be-CLI/compare/v1.0.4...v1.0.5) (2022-09-15)
+
+
+### Features
+
+* add lib template rollup ([9d0b35b](https://github.com/Be-UI/Be-CLI/commit/9d0b35bae4cca621a9019776e3dce900fb2c0e5c))
+
+
+
 ## [1.0.4](https://github.com/Be-UI/Be-CLI/compare/v1.0.3...v1.0.4) (2022-09-10)
 
 
