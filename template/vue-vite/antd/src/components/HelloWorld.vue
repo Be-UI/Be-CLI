@@ -4,7 +4,7 @@ defineProps<{ msg: string }>()
 
 <template>
   <div class="title">
-    <img src="src/assets/images/logo.png">
+    <img src="/src/assets/images/logo.png">
     <h1>
       {{ msg }}
     </h1>
@@ -14,16 +14,16 @@ defineProps<{ msg: string }>()
   </p>
   <div class="logo">
     <a href="https://vuejs.org/" target="_blank">
-      <img src="src/assets/images/vue.png">
+      <img src="/src/assets/images/vue.png">
     </a>
     <a href="https://vitejs.dev/" target="_blank">
-      <img src="src/assets/images/vite.png" class="vite-logo">
+      <img src="/src/assets/images/vite.png" class="vite-logo">
     </a>
     <a href="https://www.antdv.com/components/overview" target="_blank">
-      <img src="src/assets/images/antd.png">
+      <img src="/src/assets/images/antd.png">
     </a>
     <a href="https://github.com/Be-UI/Be-CLI" target="_blank">
-      <img src="src/assets/images/logo.png">
+      <img src="/src/assets/images/logo.png">
     </a>
   </div>
 </template>
