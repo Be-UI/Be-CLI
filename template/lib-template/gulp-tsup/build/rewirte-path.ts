@@ -12,12 +12,13 @@ import { relativeDir } from './utils'
  * so after the packaging is completed, we Dependency paths need to be replaced
  */
 const distDirMap = {
-  '@template-node-tsup/utils': 'dist/utils/index.[format]',
-  '@template-node-tsup/runtime': 'dist/runtime/index.[format]',
+  '@template-node-tsup/utils': 'dist/utils/index[format]',
+  '@template-node-tsup/runtime': 'dist/runtime/index[format]',
 }
 const formatList = [
-  { runPath: path.resolve(process.cwd(), 'dist/**/*.js'), format: 'js' },
-  { runPath: path.resolve(process.cwd(), 'dist/**/*.cjs'), format: 'cjs' },
+  { runPath: path.resolve(process.cwd(), 'dist/**/*.js'), format: '.js' },
+  { runPath: path.resolve(process.cwd(), 'dist/**/*.cjs'), format: '.cjs' },
+  { runPath: path.resolve(process.cwd(), 'dist/**/*.d.ts'), format: '' },
 ]
 
 export const parallelTask = () => {
@@ -29,14 +30,17 @@ export const parallelTask = () => {
           // 当前读取的文件内容
           let content = fileData.contents.toString()
           // 当前读取的文件路径
-          const filePath = fileData.path
+          const filePath = fileData.path.replaceAll('\\', '/')
 
           for (const distDirMapKey in distDirMap) {
             // 生产要替换的依赖路径 @xxxx ->  ../xxxx
             let targetPath = path.resolve(process.cwd(), distDirMap[distDirMapKey])
             // 替换格式后缀 .[format] -> .js / .cjs
             targetPath = targetPath.replace('[format]', formatVal.format)
-            // 生产相对路径
+              // @ts-ignore
+              targetPath = targetPath.replaceAll('\\', '/')
+
+              // 生产相对路径
             const relativePath = relativeDir(targetPath, filePath)
             // 替换依赖路径内容
             content = content.replaceAll(distDirMapKey, relativePath)
