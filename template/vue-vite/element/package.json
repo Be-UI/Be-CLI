@@ -12,7 +12,9 @@
     "build:prod": "vite build --mode development",
     "preview": "vite preview",
     "lint:ts": "eslint --fix ./ --ext .vue,.js,.ts,.jsx,.tsx",
-    "prepare": "husky install",
+    "prepare": "husky install && pnpm run husky:step1 && pnpm run husky:step2",
+    "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
+    "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
     "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "optimizeImages": "tiny --once"
