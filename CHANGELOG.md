@@ -1,3 +1,16 @@
+## [1.0.6](https://github.com/Be-UI/Be-CLI/compare/v1.0.5...v1.0.6) (2022-09-24)
+
+
+### Bug Fixes
+
+* dts generate err on tsup ([47f767b](https://github.com/Be-UI/Be-CLI/commit/47f767b60061411044deef47799f6fdd0abbc8f0))
+* fix template img pth ([313f499](https://github.com/Be-UI/Be-CLI/commit/313f499fe95633e2ef080f0031040a999c728362))
+* generate vue template haven't gitignore ([b429c35](https://github.com/Be-UI/Be-CLI/commit/b429c35911fb06ca409724fb3f96c25414f845f1))
+* husky unuseful ([9c45b28](https://github.com/Be-UI/Be-CLI/commit/9c45b281def08d716235d2340a47cf5848071330))
+* path rewrite rollup ([cda0ca6](https://github.com/Be-UI/Be-CLI/commit/cda0ca6fded8445d68e92f6fd332791d86a784e0))
+
+
+
 ## [1.0.5](https://github.com/Be-UI/Be-CLI/compare/v1.0.4...v1.0.5) (2022-09-15)
 
 
