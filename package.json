@@ -1,7 +1,7 @@
 {
   "name": "be-ui-cli",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "A cli for quickly generating project template",
   "homepage": "https://github.com/Be-UI/Be-CLI#readme",
@@ -35,7 +35,7 @@
     "dev": "cross-env ENV=BECLIDEV esno core/index.ts",
     "build": "rollup -c build-script/rollup.config.js",
     "prepublishOnly": "pnpm run build",
-    "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public",
+    "release": "bumpp package.json --commit --push --tag",
     "publish": "pnpm publish --no-git-checks --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
