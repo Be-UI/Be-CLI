@@ -13,10 +13,10 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
   } = option
   // 模版复制时过滤的文件
   const filterFile = (src: string) => {
-    if (src.includes('auto-imports.d')
+    if ((src.includes('auto-imports.d')
             || src.includes('components.d')
             || src.includes('.git')
-            || src.includes('.idea'))
+            || src.includes('.idea')) && src.includes('.gitignore'))
       return false
 
     return true
