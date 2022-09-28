@@ -12,7 +12,7 @@ import {
   projectNameOptions, PROJECTTYPE,
   projectTypeOptions,
   promptsRun,
-  uiLibTypeOptions, unitTestTypeOptions,
+  uiLibTypeOptions, uiLibTypeReactOptions, unitTestTypeOptions,
 } from '../utils'
 import { run } from './rumtime/runtime'
 
@@ -37,7 +37,7 @@ program.action(async () => {
   let runEnvRes = {}
   if(typeRes.projectType !== PROJECTTYPE.LIB){
     // 选择使用那个组件库
-    componentUiRes = await promptsRun(uiLibTypeOptions)
+    componentUiRes = await promptsRun(typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
     // 选择使用那个css原子样式库
      cssUiRes = await promptsRun(cssLibTypeOptions)
   }else{
@@ -63,8 +63,9 @@ program.action(async () => {
     ...nameRes,
     ...typeRes,
     ...unitTestRes } as any
+  console.log(options)
   // 开始运行命令
-  await run(options)
+   await run(options)
 })
 
 program.parse()

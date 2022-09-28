@@ -29,6 +29,17 @@ export const uiLibTypeOptions = [{
   }),
 }] as prompts.PromptObject[]
 
+export const uiLibTypeReactOptions = [{
+  type: 'select',
+  name: 'uiLibType',
+  message: 'please select a ui component library',
+  choices: ['ant design'].map((item, index) => {
+    const valueDict = [UILIBTYPE.ANTD]
+    // 选择时的标题和选择时的值
+    return { title: item, value: valueDict[index] }
+  }),
+}] as prompts.PromptObject[]
+
 export const cssLibTypeOptions = [{
   type: 'select',
   name: 'cssLibType',

@@ -1,9 +1,9 @@
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import type { IViteVueOption } from '../../../utils'
+import type { IViteProjOption } from '../../../utils'
 import { templatePath } from '../../../utils'
-export const runRuntimeVue = async (option: IViteVueOption) => {
+export const runRuntimeVue = async (option: IViteProjOption) => {
   const {
     projectName,
     projectPath,
@@ -39,6 +39,7 @@ export const runRuntimeVue = async (option: IViteVueOption) => {
 
       // package.json添加依赖
       packageJson.devDependencies['vite-plugin-windicss'] = '^1.8.7'
+      packageJson.devDependencies['windicss'] = '^3.5.6'
 
       // 添加 windicss.config
       await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
