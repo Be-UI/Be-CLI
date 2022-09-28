@@ -4,7 +4,7 @@ export interface IPackageInfo {
   description: string
   author: string
 }
-export interface IViteVueOption extends ICliOption{
+export interface IViteProjOption extends ICliOption{
   uiLibType: string
   cssLibType: string
   unitTestLibType: string

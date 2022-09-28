@@ -8,6 +8,7 @@ export const __dirnameNew = path.dirname(__filenameNew)
 export const templatePath = {
   element: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/element'),
   antd: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/antd'),
+  antdReact: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/react-vite/antd'),
   windicss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/windicss'),
   unocss: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/vue-vite/unocss'),
   vitest: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/unit-test/vitest-vue-react'),

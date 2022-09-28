@@ -1,0 +1,30 @@
+.title{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  font-size: 18px;
+  h1{
+    margin: 0;
+  }
+  img{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+  }
+}
+.description{
+  margin: 10px 0;
+  width: 300px;
+  text-align: center;
+  font-size: 10px;
+}
+.logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+  }
+}
