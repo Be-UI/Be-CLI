@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/Be-UI/Be-CLI/compare/v1.0.6...v1.0.7) (2022-09-28)
+
+
+### Features
+
+* added react + vite + antd + windicss/unocss template ([adac75c](https://github.com/Be-UI/Be-CLI/commit/adac75ce570f5cb36926af83c700a32e949e3613))
+
+
+
 ## [1.0.6](https://github.com/Be-UI/Be-CLI/compare/v1.0.5...v1.0.6) (2022-09-24)
 
 
