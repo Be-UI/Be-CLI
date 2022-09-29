@@ -16,6 +16,8 @@ export default defineConfig({
     postcss: 'postcss.config.cjs',
   },
   build: {
+    minify: true,
+    cssCodeSplit: true,
     commonjsOptions: {
       ignoreTryCatch: false,
     },
