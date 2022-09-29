@@ -93,12 +93,14 @@ export const runRuntimeReact = async (option: IViteProjOption) => {
         }
 
         // 设置vitest 或 jest
-       /* if (unitTestLibType === 'vitest') {
+        if (unitTestLibType === 'vitest') {
             console.log(chalk.blueBright.bold('\nstart setting vitest ...'))
 
             // package.json添加依赖
             packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
             packageJson.devDependencies['@vitest/ui'] = '0.22.1'
+            packageJson.devDependencies['@testing-library/react'] = '^12.0.0'
+            packageJson.devDependencies['@testing-library/user-event'] = '^14.4.2'
             packageJson.devDependencies.vitest = '0.22.1'
             packageJson.devDependencies.jsdom = '^20.0.0'
 
@@ -108,33 +110,34 @@ export const runRuntimeReact = async (option: IViteProjOption) => {
             packageJson.scripts['test:coverage'] = 'vitest --coverage'
 
             // 移动处理vitest.config.ts
-            await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
+            const vitestConfigPath = templatePath[`${unitTestLibType}React` as keyof typeof templatePath]
+            await fs.copySync(vitestConfigPath, projectPath)
             console.log(chalk.greenBright.bold('\nset vitest success !'))
         }
 
         if (unitTestLibType === 'jest') {
             console.log(chalk.blueBright.bold('\nstart setting jest ...'))
             // package.json添加依赖
-            packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
             packageJson.devDependencies.jest = '^27.5.1'
             packageJson.devDependencies['jest-environment-jsdom'] = '^27.5.1'
             packageJson.devDependencies['ts-jest'] = '27.1.4'
-            packageJson.devDependencies['@vue/vue3-jest'] = '^27.0.0'
             packageJson.devDependencies['babel-jest'] = '^27.5.1'
             packageJson.devDependencies['@types/jest'] = '^27.5.1'
             packageJson.devDependencies['@testing-library/jest-dom'] = '^5.16.4'
-            packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
             packageJson.devDependencies['@babel/preset-env'] = '^7.17.10'
             packageJson.devDependencies['@babel/preset-typescript'] = '^7.16.7'
-
+            packageJson.devDependencies['@testing-library/react'] = '^12.0.0'
+            packageJson.devDependencies['@testing-library/user-event'] = '^14.4.2'
+            packageJson.devDependencies['@babel/preset-react'] = "^7.18.6"
             // package.json添加指令
             packageJson.scripts.test = 'jest'
             packageJson.scripts['test:coverage'] = 'jest --coverage'
 
             // 移动处理 jest.config.cjs
-            await fs.copySync(templatePath[unitTestLibType as keyof typeof templatePath], projectPath)
+            const jestConfigPath = templatePath[`${unitTestLibType}React` as keyof typeof templatePath]
+            await fs.copySync(jestConfigPath, projectPath)
             console.log(chalk.greenBright.bold('\nset jest success !'))
-        }*/
+        }
 
         // 写入package.json
         await fs.writeJsonSync(`${projectPath}/package.json`, packageJson, { spaces: 2 })
