@@ -1,7 +1,7 @@
 {
   "name": "be-ui-cli",
   "type": "module",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "description": "A cli for quickly generating project template",
   "homepage": "https://github.com/Be-UI/Be-CLI#readme",
