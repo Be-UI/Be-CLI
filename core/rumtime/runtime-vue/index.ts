@@ -100,6 +100,7 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
       packageJson.devDependencies['@vitest/ui'] = '0.22.1'
       packageJson.devDependencies.vitest = '0.22.1'
       packageJson.devDependencies.jsdom = '^20.0.0'
+      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
 
       // package.json添加指令
       packageJson.scripts.test = 'vitest'
