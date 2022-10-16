@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import chalk from 'chalk'
 import type { IViteProjOption } from '../../../utils'
 import { templatePath } from '../../../utils'
-import {addUnitTest} from "../add-unit-test";
+import {addBaseUnitTest} from "../add-unit-test";
 export const runRuntimeVue = async (option: IViteProjOption) => {
   const {
     projectName,
@@ -93,9 +93,14 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
     }
 
     // 添加单元测试
-    await addUnitTest(packageJson,option)
-    packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
-    packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
+    await addBaseUnitTest(packageJson,option,'')
+    if (unitTestLibType === 'vitest') {
+      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
+    }
+    if (unitTestLibType === 'jest') {
+      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
+      packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
+    }
 
     // 写入package.json
     await fs.writeJsonSync(`${projectPath}/package.json`, packageJson, { spaces: 2 })

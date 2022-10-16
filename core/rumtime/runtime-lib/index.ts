@@ -3,7 +3,7 @@ import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 import readdirp from 'readdirp';
-import {addUnitTest} from "../add-unit-test";
+import {addBaseUnitTest} from "../add-unit-test";
 export const runRuntimeLib = async (option: ILibOption) => {
 
     const {
@@ -39,7 +39,7 @@ export const runRuntimeLib = async (option: ILibOption) => {
         }
 
         // 添加单元测试
-        await addUnitTest(packageJson,option)
+        await addBaseUnitTest(packageJson,option,'Lib')
 
         for await (const entry of readdirp(projectPath,{fileFilter:['!.DS_Store']})) {
             const { fullPath } = entry

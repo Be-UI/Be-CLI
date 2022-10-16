@@ -1,9 +1,9 @@
-import {ILibOption, IViteVueOption, templatePath} from "../../utils";
+import {ILibOption, IViteProjOption, templatePath} from "../../utils";
 import fs from 'fs-extra'
 import chalk from 'chalk'
 
 
-export async function addUnitTest(packageJson:any,option: ILibOption | IViteVueOption){
+export async function addBaseUnitTest(packageJson:any,option: ILibOption | IViteProjOption,type:string){
     const {
         projectPath,
         unitTestLibType,
@@ -25,7 +25,7 @@ export async function addUnitTest(packageJson:any,option: ILibOption | IViteVueO
         packageJson.scripts['test:coverage'] = 'vitest --coverage'
 
         // 移动处理vitest.config.ts
-        await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
+        await fs.copySync(templatePath[`${unitTestLibType}${type}` as keyof typeof templatePath], projectPath)
         console.log(chalk.greenBright.bold('\nset vitest success !'))
     }
     // 添加单元测试 jest
@@ -46,7 +46,7 @@ export async function addUnitTest(packageJson:any,option: ILibOption | IViteVueO
         packageJson.scripts.test = 'jest'
         packageJson.scripts['test:coverage'] = 'jest --coverage'
         // 移动处理 jest.config.cjs
-        await fs.copySync(templatePath[`${unitTestLibType}Lib` as keyof typeof templatePath], projectPath)
+        await fs.copySync(templatePath[`${unitTestLibType}${type}` as keyof typeof templatePath], projectPath)
         console.log(chalk.greenBright.bold('\nset jest success !'))
     }
 }
