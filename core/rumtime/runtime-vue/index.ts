@@ -4,6 +4,7 @@ import chalk from 'chalk'
 import type { IViteProjOption } from '../../../utils'
 import { templatePath } from '../../../utils'
 import {addBaseUnitTest} from "../add-unit-test";
+import {addAtomCss} from "../add-atom-css";
 export const runRuntimeVue = async (option: IViteProjOption) => {
   const {
     projectName,
@@ -34,63 +35,8 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
     const packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
     packageJson.name = projectName
 
-    // 设置windicss 或 unocss
-    if (cssLibType === 'windicss') {
-      console.log(chalk.blueBright.bold('\nstart setting windicss ...'))
-
-      // package.json添加依赖
-      packageJson.devDependencies['vite-plugin-windicss'] = '^1.8.7'
-      packageJson.devDependencies['windicss'] = '^3.5.6'
-
-      // 添加 windicss.config
-      await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
-
-      // 修改 main.ts
-      await fs.ensureDirSync(projectPath)
-      const mainContext = await fs.readFile(`${projectPath}/src/main.ts`)
-      await fs.outputFileSync(
-          `${projectPath}/src/main.ts`,
-          `import 'virtual:windi.css'\n${mainContext.toString()}`)
-
-      // 修改 vite.config.ts
-      const importWindicss = 'import WindiCSS from \'vite-plugin-windicss\''
-      const pluginWindicss = 'WindiCSS(),'
-      const viteConfigContext = await fs.readFile(`${projectPath}/vite.config.ts`)
-      let viteCongfiRes = viteConfigContext.toString()
-      viteCongfiRes = viteCongfiRes.replace('// IMPORT_FLAG', importWindicss)
-      viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
-      await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
-      console.log(chalk.greenBright.bold('\nset windicss success !'))
-    }
-
-    if (cssLibType === 'unocss') {
-      console.log(chalk.blueBright.bold('\nstart setting unocss ...'))
-
-      // package.json添加依赖
-      packageJson.devDependencies.unocss = '^0.45.6'
-      packageJson.devDependencies['@unocss/preset-icons'] = '^0.45.6'
-      packageJson.devDependencies['@unocss/reset'] = '^0.45.6'
-      packageJson.devDependencies['@iconify-json/ph'] = '^1.1.2'
-
-      // 添加 unocss.config
-      await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
-
-      // 修改 main.ts
-      await fs.ensureDirSync(projectPath)
-      const mainContext = await fs.readFile(`${projectPath}/src/main.ts`)
-      await fs.outputFileSync(
-          `${projectPath}/src/main.ts`,
-          `import '@unocss/reset/tailwind.css'\nimport 'uno.css'\n${mainContext.toString()}`)
-      // 修改 vite.config.ts
-      const importWindicss = 'import Unocss from \'unocss/vite\''
-      const pluginWindicss = 'Unocss(),'
-      const viteConfigContext = await fs.readFile(`${projectPath}/vite.config.ts`)
-      let viteCongfiRes = viteConfigContext.toString()
-      viteCongfiRes = viteCongfiRes.replace('// IMPORT_FLAG', importWindicss)
-      viteCongfiRes = viteCongfiRes.replace('// PLUGINS_FLAG', pluginWindicss)
-      await fs.outputFileSync(`${projectPath}/vite.config.ts`, viteCongfiRes)
-      console.log(chalk.greenBright.bold('\nset unocss success !'))
-    }
+    // 设置原子css
+    await addAtomCss(packageJson,option,'ts')
 
     // 添加单元测试
     await addBaseUnitTest(packageJson,option,'')
