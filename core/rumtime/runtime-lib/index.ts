@@ -4,6 +4,7 @@ import fs from 'fs-extra'
 import chalk from 'chalk'
 import readdirp from 'readdirp';
 import {addBaseUnitTest} from "../add-unit-test";
+import {readPackageJson, writePackageJson} from "../read-write-package";
 export const runRuntimeLib = async (option: ILibOption) => {
 
     const {
@@ -11,7 +12,6 @@ export const runRuntimeLib = async (option: ILibOption) => {
         projectPath,
         buildLibType,
         envType,
-        unitTestLibType,
     } = option
     const spinner = ora('Loading').start()
     try {
@@ -21,9 +21,8 @@ export const runRuntimeLib = async (option: ILibOption) => {
         const templateName = libTemplateName[buildLibType as keyof typeof libTemplateName]
 
         // 读取 package.json
-        console.log(chalk.blueBright.bold('\nstart creating package.json ...'))
-        await fs.ensureDirSync(projectPath)
-        let packageJson = await fs.readJsonSync(`${projectPath}/package.json`)
+        let packageJson = await readPackageJson(option)
+        // 修改名称
         let packageJsonStr = JSON.stringify(packageJson).replaceAll(templateName,projectName)
         packageJson = JSON.parse(packageJsonStr)
 
@@ -56,8 +55,8 @@ export const runRuntimeLib = async (option: ILibOption) => {
         }
 
         // 写入package.json
-        await fs.writeJsonSync(`${projectPath}/package.json`, packageJson, { spaces: 2 })
-        console.log(chalk.greenBright.bold('\ncreate package.json success !'))
+        await writePackageJson(projectPath,packageJson)
+
         spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
         spinner.succeed()
 

@@ -1,5 +1,4 @@
 import {IViteProjOption, templatePath} from "../../utils";
-import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 export async function addAtomCss(packageJson:any,option: IViteProjOption,fileType:string) {
