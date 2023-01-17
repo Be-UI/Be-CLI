@@ -3,8 +3,8 @@
 
 ### Features
 
-* added vue test lib to jest ([7907fa9](https://github.com/Be-UI/Be-CLI/commit/7907fa98db6a183eb90a1853e40a6369d545acfd))
-* added vue test lib to vitest ([6303bcb](https://github.com/Be-UI/Be-CLI/commit/6303bcbcef954c10f883c6daad6a1d6f57cb8885))
+* added react test lib to jest ([7907fa9](https://github.com/Be-UI/Be-CLI/commit/7907fa98db6a183eb90a1853e40a6369d545acfd))
+* added react test lib to vitest ([6303bcb](https://github.com/Be-UI/Be-CLI/commit/6303bcbcef954c10f883c6daad6a1d6f57cb8885))
 
 
 
