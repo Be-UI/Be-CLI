@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 interface IProps {
   msg: string
 }
-export const HelloWord = function (props: IProps) {
+export const HelloWord = (props: IProps) => {
   return (
         <div>
             <div className="title">
-                <img src="/src/assets/images/logo.png"/>
+                <img src="/src/assets/images/logo.png" />
                 <h1>
                     {props.msg}
                 </h1>

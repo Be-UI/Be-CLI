@@ -1,11 +1,11 @@
 {
   "name": "@template-node-tsup/build",
+  "description": "",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
   "keywords": [],
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "build:split": "cross-env BUILD_MODE=split tsup-node --config index.ts && pnpm run rewrite",
     "build:all": "cross-env BUILD_MODE=all tsup --config index.ts",

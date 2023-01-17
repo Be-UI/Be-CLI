@@ -6,10 +6,10 @@
 import * as path from 'path'
 import { Command } from 'commander'
 import {
-  buildLibTypeOptions,
-  cssLibTypeOptions, envTypeOptions,
-  getConfigFile,
-  projectNameOptions, PROJECTTYPE,
+  PROJECTTYPE,
+  buildLibTypeOptions, cssLibTypeOptions,
+  envTypeOptions,
+  getConfigFile, projectNameOptions,
   projectTypeOptions,
   promptsRun,
   uiLibTypeOptions, uiLibTypeReactOptions, unitTestTypeOptions,
@@ -25,7 +25,7 @@ program
   .description(configInfo.description)
   .version(configInfo.version)
 
-program.action(async () => {
+program.action(async() => {
   // 输入项目名称
   const nameRes = await promptsRun(projectNameOptions)
   // 选择项目模板类型
@@ -35,12 +35,12 @@ program.action(async () => {
   let cssUiRes = {}
   let buildRes = {}
   let runEnvRes = {}
-  if(typeRes.projectType !== PROJECTTYPE.LIB){
+  if (typeRes.projectType !== PROJECTTYPE.LIB) {
     // 选择使用那个组件库
     componentUiRes = await promptsRun(typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
     // 选择使用那个css原子样式库
-     cssUiRes = await promptsRun(cssLibTypeOptions)
-  }else{
+    cssUiRes = await promptsRun(cssLibTypeOptions)
+  } else {
     // 选择使用那个打包库
     buildRes = await promptsRun(buildLibTypeOptions)
     // 选择使用那个运行环境
@@ -62,10 +62,11 @@ program.action(async () => {
     ...runEnvRes,
     ...nameRes,
     ...typeRes,
-    ...unitTestRes } as any
+    ...unitTestRes,
+  } as any
   console.log(options)
   // 开始运行命令
-   await run(options)
+  await run(options)
 })
 
 program.parse()

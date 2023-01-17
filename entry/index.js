@@ -1,2 +1,1 @@
 import '../dist/index.js'
-

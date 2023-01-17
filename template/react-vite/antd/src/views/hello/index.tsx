@@ -1,12 +1,12 @@
 import { Button } from 'antd'
-
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 // 引入相关的hooks
 import { useDispatch, useSelector } from 'react-redux'
 // 引入对应的方法
-import type { CounterState } from '../../store/features/counterSlice'
 import { increment } from '../../store/features/counterSlice'
-export default function HelloWorld() {
+import type { CounterState } from '../../store/features/counterSlice'
+const HelloWorld: React.FC = () => {
   const navigate = useNavigate()
   const routerSwitch = (path: string) => {
     navigate(path)
@@ -28,3 +28,4 @@ export default function HelloWorld() {
         </div>
   )
 }
+export default HelloWorld

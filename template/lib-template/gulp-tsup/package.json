@@ -1,16 +1,19 @@
 {
   "name": "template-node-tsup",
+  "description": "",
+  "private": false,
   "type": "module",
   "version": "1.0.0",
-  "private": false,
   "packageManager": "^pnpm@7.0.0",
-  "description": "",
-  "author": "",
+  "keywords": [],
   "license": "MIT",
+  "author": "",
   "homepage": "",
   "repository": "",
   "bugs": "",
-  "keywords": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,9 +21,6 @@
       "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
@@ -55,33 +55,32 @@
     "ora": "^6.1.2"
   },
   "devDependencies": {
-    "@baiwusanyu/eslint-config": "^1.0.6",
-    "@changesets/cli": "^2.23.1",
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1",
+    "@baiwusanyu/eslint-config": "^1.0.10",
+    "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "@template-node-tsup/build": "*",
     "@template-node-tsup/entry": "*",
     "@template-node-tsup/play": "*",
     "@template-node-tsup/runtime": "*",
     "@template-node-tsup/utils": "*",
-    "@types/fs-extra": "^9.0.13",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.0.0",
     "bumpp": "^8.2.1",
     "conventional-changelog-cli": "^2.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "8.18.0",
+    "eslint": "8.32.0",
     "esno": "^0.16.3",
     "gulp": "^4.0.2",
-    "husky": "^7.0.4",
-    "jsdom": "^20.0.0",
-    "pnpm": "^6.3.0",
-    "rimraf": "^3.0.2",
-    "tsup": "^6.2.3",
-    "typescript": "4.7.4",
-    "rollup": "^2.79.0",
-    "rollup-plugin-dts": "^4.2.1",
-    "@rollup/plugin-node-resolve": "^14.1.0",
-    "rollup-plugin-typescript2": "^0.34.0"
+    "husky": "^8.0.3",
+    "jsdom": "^21.0.0",
+    "rimraf": "^4.1.0",
+    "rollup": "^3.10.0",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tsup": "^6.5.0",
+    "typescript": "4.9.4"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [

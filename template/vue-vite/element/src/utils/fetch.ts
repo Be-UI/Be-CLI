@@ -12,7 +12,7 @@ async function sendRequest(url: string, headers: Headers, config: IReqConfig) {
   })
   return res
 }
-const parseRes = async (res: Response) => {
+const parseRes = async(res: Response) => {
   const contentType = res.headers.get('Content-Type')
   let resVal
   // 判定返回的内容类型，做不同的处理
@@ -28,14 +28,13 @@ const parseRes = async (res: Response) => {
 
     if (contentType.includes('video'))
       resVal = await res.blob()
-  }
-  else {
+  } else {
     resVal = await res.text()
   }
   return resVal
 }
 
-const handleRes = async (res: Response) => {
+const handleRes = async(res: Response) => {
   const parsedRes = await parseRes(res)
   // 如果res.ok，则请求成功
   if (res.ok)
@@ -44,7 +43,7 @@ const handleRes = async (res: Response) => {
   // 请求失败，返回解析之后的失败的数据
   throw parsedRes
 }
-const request = async (
+const request = async(
   url: string,
   config: IReqConfig = {
     'params': {},

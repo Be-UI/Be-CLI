@@ -1,10 +1,10 @@
 
-import {useState} from 'react'
+import { useState } from 'react'
+import { runtimeBrowser } from '@template-play/entry'
 import reactLogo from './assets/react.svg'
-import {runtimeBrowser} from '@template-play/entry'
 import './App.css'
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0)
   runtimeBrowser()
   return (

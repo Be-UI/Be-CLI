@@ -4,7 +4,7 @@ import fs from 'fs-extra'
 import { run } from './utils'
 import { parallelTask } from './rewirte-path'
 
-const moveDistToRoot = async () => {
+const moveDistToRoot = async() => {
   const distPathInBuild = path.resolve(process.cwd(), 'dist')
   const distPathToRoot = path.resolve(process.cwd(), '../dist')
   await fs.copySync(distPathInBuild, distPathToRoot)
@@ -12,7 +12,7 @@ const moveDistToRoot = async () => {
 export default series(
   ...parallelTask(),
   // 移动dist
-  async () => await moveDistToRoot(),
+  async() => { await moveDistToRoot() },
   // 删build目录下dist
-  async () => await run('pnpm run --filter @template-node-tsup/build clean'),
+  async() => { await run('pnpm run --filter @template-node-tsup/build clean') },
 )

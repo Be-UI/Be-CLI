@@ -1,7 +1,8 @@
 import { Button } from 'antd'
-import { useState } from 'react'
+import React, { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
-export default function Home() {
+const Home: React.FC = () => {
   const [count, setCount] = useState(0)
   const handleClick = () => {
     setCount(count + 1)
@@ -21,3 +22,4 @@ export default function Home() {
         </div>
   )
 }
+export default Home

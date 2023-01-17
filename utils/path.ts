@@ -22,11 +22,9 @@ export const templatePath = {
   browser: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-play'),
 }
 export const libTemplateName = {
-  tsup:'template-node-tsup',
-  rollup:'template-node-rollup'
+  tsup: 'template-node-tsup',
+  rollup: 'template-node-rollup',
 }
-
 
 const cliPackageFilePath = process.env.ENV === 'BECLIDEV' ? 'package.json' : '../package.json'
 export const cliPackagePath = path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, cliPackageFilePath)
-

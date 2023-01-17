@@ -1,5 +1,5 @@
+import { BUILDLIBTYPE, CSSLIBTYPE, PROJECTTYPE, RUNENVTYPE, UILIBTYPE, UNITTESTLIBTYPE } from './enums'
 import type * as prompts from 'prompts'
-import {BUILDLIBTYPE, CSSLIBTYPE, PROJECTTYPE, RUNENVTYPE, UILIBTYPE, UNITTESTLIBTYPE} from './enums'
 
 export const projectNameOptions = [{
   type: 'text',
@@ -83,4 +83,3 @@ export const envTypeOptions = [{
     return { title: item, value: valueDict[index] }
   }),
 }] as prompts.PromptObject[]
-

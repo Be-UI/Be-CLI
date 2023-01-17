@@ -1,14 +1,10 @@
 {
   "name": "be-ui-cli",
+  "description": "A cli for quickly generating project template",
+  "private": false,
   "type": "module",
   "version": "1.0.8",
-  "private": false,
-  "description": "A cli for quickly generating project template",
   "homepage": "https://github.com/Be-UI/Be-CLI#readme",
-  "repository": "https://github.com/Be-UI/Be-CLI",
-  "bugs": "https://github.com/Be-UI/Be-CLI/issues",
-  "author": "baiwusanyu-c",
-  "license": "MIT",
   "keywords": [
     "vue3",
     "react",
@@ -22,13 +18,17 @@
     "vitest",
     "jest"
   ],
-  "bin": {
-    "be-ui-cli": "entry/index.js"
-  },
+  "license": "MIT",
+  "author": "baiwusanyu-c",
+  "repository": "https://github.com/Be-UI/Be-CLI",
+  "bugs": "https://github.com/Be-UI/Be-CLI/issues",
   "files": [
     "dist",
     "entry"
   ],
+  "bin": {
+    "be-ui-cli": "entry/index.js"
+  },
   "scripts": {
     "init": "pnpm i",
     "lint:fix": "eslint . --fix",
@@ -40,42 +40,41 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
-    "chalk": "4.1.2",
+    "chalk": "5.2.0",
     "colors": "^1.4.0",
-    "commander": "^9.0.0",
-    "fs-extra": "^10.0.1",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
     "readdirp": "^3.6.0"
   },
   "devDependencies": {
-    "@baiwusanyu/eslint-config": "^1.0.6",
-    "@changesets/cli": "^2.23.1",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@baiwusanyu/eslint-config": "^1.0.10",
+    "@changesets/cli": "^2.26.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
-    "@types/fs-extra": "^9.0.13",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.0.0",
-    "@types/prompts": "^2.0.14",
+    "@types/prompts": "^2.4.2",
     "bumpp": "^8.2.1",
     "conventional-changelog-cli": "^2.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.18.0",
+    "eslint": "^8.32.0",
     "esno": "^0.16.3",
-    "pnpm": "^6.3.0",
-    "rollup": "^2.73.0",
+    "rollup": "^3.10.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.33.0",
     "tslib": "^2.3.1",
-    "typescript": "4.7.4",
+    "typescript": "4.9.4",
     "unbuild": "^0.7.4",
-    "vite": "^2.9.12",
-    "vitest": "^0.15.2"
+    "vite": "^4.0.4",
+    "vitest": "^0.27.1"
   },
   "eslintConfig": {
     "extends": [

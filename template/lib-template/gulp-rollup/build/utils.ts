@@ -28,7 +28,7 @@ export function relativeDir(relative: string, absolute: string) {
 
 export const r = (...args) => path.resolve(__dirname, '..', ...args)
 
-export const run = async (command) => {
+export const run = async(command) => {
   return new Promise((resolve) => {
     const [cmd, ...args] = command.split(' ')
     const app = spawn(cmd, args, {
@@ -41,7 +41,7 @@ export const run = async (command) => {
   })
 }
 
-export const build = async (config, buildConfig) => {
+export const build = async(config, buildConfig) => {
   const bundle = await rollup(config)
   return Promise.all(
     buildConfig.map((option) => {
