@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "^pnpm@7.0.0",
   "scripts": {
+    "init": "pnpm i",
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode stage",
     "serve:prod": "vite --host --mode production",
@@ -28,7 +30,7 @@
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.6.3"
+    "react-router-dom": "^6.6.2"
   },
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.10",
