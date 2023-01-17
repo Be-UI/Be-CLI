@@ -5,6 +5,7 @@
 
 import * as path from 'path'
 import { Command } from 'commander'
+
 import {
   PROJECTTYPE,
   buildLibTypeOptions,
@@ -82,5 +83,14 @@ export function BeCLIRun() {
   program.parse()
 }
 
-if (process.env.ENV === 'BECLIDEV')
-  BeCLIRun()
+async function start() {
+  const pkg = getConfigFile()
+  const argv = process.argv
+  const len = argv.length
+  if (argv[len - 1] === '--v')
+    console.log(`Be ClI: v${pkg.version}`)
+  else
+    BeCLIRun()
+}
+
+start()
