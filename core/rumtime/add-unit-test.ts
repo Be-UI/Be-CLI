@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import {IOtherOption, templatePath} from '../../utils'
-import type { ILibOption, IViteProjOption } from '../../utils'
+import { templatePath } from '../../utils'
+import type { ILibOption, IOtherOption, IViteProjOption } from '../../utils'
 
 export async function addBaseUnitTest(
   packageJson: any,

@@ -34,6 +34,9 @@ const config = [
       copy({
         targets: [
           { src: 'template', dest: 'dist/' },
+          { src: 'entry', dest: 'dist/' },
+          { src: './package.json', dest: 'dist/' },
+          { src: './README.md', dest: 'dist/' },
         ],
       }),
     ],

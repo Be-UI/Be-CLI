@@ -33,11 +33,12 @@
     "init": "pnpm i",
     "lint:fix": "eslint . --fix",
     "dev": "cross-env ENV=BECLIDEV esno core/index.ts",
-    "build": "rollup -c build-script/rollup.config.js",
+    "build": "pnpm run clean && rollup -c build-script/rollup.config.js",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json --commit --push --tag",
     "publish": "pnpm publish --no-git-checks --access public",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "chalk": "5.2.0",
@@ -65,6 +66,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.32.0",
     "esno": "^0.16.3",
+    "rimraf": "^4.1.0",
     "rollup": "^3.10.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",

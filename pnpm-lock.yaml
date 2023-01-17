@@ -24,6 +24,7 @@ specifiers:
   ora: ^6.1.2
   prompts: ^2.4.2
   readdirp: ^3.6.0
+  rimraf: ^4.1.0
   rollup: ^3.10.0
   rollup-plugin-cleanup: ^3.2.1
   rollup-plugin-copy: ^3.4.0
@@ -61,6 +62,7 @@ devDependencies:
   cross-env: 7.0.3
   eslint: 8.32.0
   esno: 0.16.3
+  rimraf: 4.1.0
   rollup: 3.10.0
   rollup-plugin-cleanup: 3.2.1_rollup@3.10.0
   rollup-plugin-copy: 3.4.0
@@ -5222,6 +5224,12 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rimraf/4.1.0:
+    resolution: {integrity: sha512-ZJdkUR5/dRrRJHdcSKJLrpRn6tVjl9ALxd4yrTCxFsMpjQNzwHF6GLqMsuEzEYIXxHlFPDSk21Vr8VPuFBEz0g==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /rollup-plugin-cleanup/3.2.1_rollup@3.10.0:

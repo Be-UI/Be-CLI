@@ -18,7 +18,7 @@ export interface ILibOption extends ICliOption{
 
 export interface IOtherOption extends ICliOption{
   unitTestLibType: string
-  otherType : string
+  otherType: string
 }
 
 export interface ICliOption {

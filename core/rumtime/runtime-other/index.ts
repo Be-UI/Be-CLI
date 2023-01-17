@@ -1,16 +1,17 @@
-import {filterFile, IOtherOption, templatePath} from "../../../utils";
-import ora from "ora";
-import chalk from "chalk";
-import fs from "fs-extra";
-import {readPackageJson, writePackageJson} from "../read-write-package";
-import {addBaseUnitTest} from "../add-unit-test";
+import ora from 'ora'
+import chalk from 'chalk'
+import fs from 'fs-extra'
+import { filterFile, templatePath } from '../../../utils'
+import { readPackageJson, writePackageJson } from '../read-write-package'
+import { addBaseUnitTest } from '../add-unit-test'
+import type { IOtherOption } from '../../../utils'
 
-export async function runRuntimeOther(option: IOtherOption){
+export async function runRuntimeOther(option: IOtherOption) {
   const {
     projectName,
     projectPath,
     unitTestLibType,
-    otherType
+    otherType,
   } = option
   const spinner = ora('Loading').start()
   try {

@@ -1,10 +1,10 @@
 import chalk from 'chalk'
-import { PROJECTTYPE} from '../../utils'
+import { PROJECTTYPE } from '../../utils'
 import { runRuntimeVue } from './runtime-vue'
 import { runRuntimeLib } from './runtime-lib'
 import { runRuntimeReact } from './runtime-react'
 import { runRuntimeOther } from './runtime-other'
-import type { ILibOption, IViteProjOption, IOtherOption } from '../../utils'
+import type { ILibOption, IOtherOption, IViteProjOption } from '../../utils'
 export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
   const {
     projectName,
