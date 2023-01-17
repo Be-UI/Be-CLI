@@ -1,10 +1,21 @@
+# [1.1.0](https://github.com/Be-UI/Be-CLI/compare/v1.0.8...v1.1.0) (2023-01-17)
+
+
+### Features
+
+* added bms template ([996a72c](https://github.com/Be-UI/Be-CLI/commit/996a72ccc61b08feff01a1edb07297a93d54b2de))
+* added template pure vue and pure react ([94c6c90](https://github.com/Be-UI/Be-CLI/commit/94c6c90b6b89aa0e796b1b238ebe72522151ea2b))
+* added version command ([63ef0b3](https://github.com/Be-UI/Be-CLI/commit/63ef0b30333255e321bc7ba990cb77d755564d53))
+
+
+
 ## [1.0.8](https://github.com/Be-UI/Be-CLI/compare/v1.0.7...v1.0.8) (2022-09-29)
 
 
 ### Features
 
-* added react test lib to jest ([7907fa9](https://github.com/Be-UI/Be-CLI/commit/7907fa98db6a183eb90a1853e40a6369d545acfd))
-* added react test lib to vitest ([6303bcb](https://github.com/Be-UI/Be-CLI/commit/6303bcbcef954c10f883c6daad6a1d6f57cb8885))
+* added vue test lib to jest ([7907fa9](https://github.com/Be-UI/Be-CLI/commit/7907fa98db6a183eb90a1853e40a6369d545acfd))
+* added vue test lib to vitest ([6303bcb](https://github.com/Be-UI/Be-CLI/commit/6303bcbcef954c10f883c6daad6a1d6f57cb8885))
 
 
 
