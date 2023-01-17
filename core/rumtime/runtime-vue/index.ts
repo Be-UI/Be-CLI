@@ -1,12 +1,12 @@
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
+import { filterFile, templatePath } from '../../../utils'
+import { addBaseUnitTest } from '../add-unit-test'
+import { addAtomCss } from '../add-atom-css'
+import { readPackageJson, writePackageJson } from '../read-write-package'
 import type { IViteProjOption } from '../../../utils'
-import { templatePath, filterFile } from '../../../utils'
-import {addBaseUnitTest} from "../add-unit-test";
-import {addAtomCss} from "../add-atom-css";
-import {readPackageJson, writePackageJson} from "../read-write-package";
-export const runRuntimeVue = async (option: IViteProjOption) => {
+export const runRuntimeVue = async(option: IViteProjOption) => {
   const {
     projectName,
     projectPath,
@@ -25,20 +25,20 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
     packageJson.name = projectName
 
     // 设置原子css
-    await addAtomCss(packageJson,option,'ts')
+    await addAtomCss(packageJson, option, 'ts')
 
     // 添加单元测试
-    await addBaseUnitTest(packageJson,option,'')
-    if (unitTestLibType === 'vitest') {
+    await addBaseUnitTest(packageJson, option, '')
+    if (unitTestLibType === 'vitest')
       packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
-    }
+
     if (unitTestLibType === 'jest') {
       packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
       packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
     }
 
     // 写入package.json
-    await writePackageJson(projectPath,packageJson)
+    await writePackageJson(projectPath, packageJson)
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
     spinner.succeed()
