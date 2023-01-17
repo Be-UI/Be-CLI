@@ -1,0 +1,6 @@
+{
+  "extends": "@baiwusanyu",
+  "rules": {
+    "@typescript-eslint/no-this-alias": ["off"]
+  }
+}

@@ -7,12 +7,17 @@ import * as path from 'path'
 import { Command } from 'commander'
 import {
   PROJECTTYPE,
-  buildLibTypeOptions, cssLibTypeOptions,
+  buildLibTypeOptions,
+  cssLibTypeOptions,
   envTypeOptions,
-  getConfigFile, projectNameOptions,
+  getConfigFile,
+  otherTypeOptions,
+  projectNameOptions,
   projectTypeOptions,
   promptsRun,
-  uiLibTypeOptions, uiLibTypeReactOptions, unitTestTypeOptions,
+  uiLibTypeOptions,
+  uiLibTypeReactOptions,
+  unitTestTypeOptions,
 } from '../utils'
 import { run } from './rumtime/runtime'
 
@@ -35,16 +40,19 @@ program.action(async() => {
   let cssUiRes = {}
   let buildRes = {}
   let runEnvRes = {}
-  if (typeRes.projectType !== PROJECTTYPE.LIB) {
-    // 选择使用那个组件库
-    componentUiRes = await promptsRun(typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
-    // 选择使用那个css原子样式库
-    cssUiRes = await promptsRun(cssLibTypeOptions)
-  } else {
+  let otherRes = {}
+  if (typeRes.projectType === PROJECTTYPE.LIB) {
     // 选择使用那个打包库
     buildRes = await promptsRun(buildLibTypeOptions)
     // 选择使用那个运行环境
     runEnvRes = await promptsRun(envTypeOptions)
+  } else if (typeRes.projectType === PROJECTTYPE.OTHER) {
+    otherRes = await promptsRun(otherTypeOptions)
+  } else {
+    // 选择使用那个组件库
+    componentUiRes = await promptsRun(typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
+    // 选择使用那个css原子样式库
+    cssUiRes = await promptsRun(cssLibTypeOptions)
   }
 
   // 选择使用单元测试
@@ -63,6 +71,7 @@ program.action(async() => {
     ...nameRes,
     ...typeRes,
     ...unitTestRes,
+    ...otherRes,
   } as any
   console.log(options)
   // 开始运行命令

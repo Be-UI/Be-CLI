@@ -1,9 +1,9 @@
 
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import type { ILibOption, IViteProjOption } from '../../utils'
+import type {ILibOption, IOtherOption, IViteProjOption} from '../../utils'
 
-export async function readPackageJson(option: ILibOption | IViteProjOption) {
+export async function readPackageJson(option: ILibOption | IViteProjOption | IOtherOption) {
   const { projectPath } = option
   console.log(chalk.blueBright.bold('\nstart creating package.json ...'))
   await fs.ensureDirSync(projectPath)

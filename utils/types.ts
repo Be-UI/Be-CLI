@@ -16,6 +16,11 @@ export interface ILibOption extends ICliOption{
   buildLibType: string
 }
 
+export interface IOtherOption extends ICliOption{
+  unitTestLibType: string
+  otherType : string
+}
+
 export interface ICliOption {
   projectType: string
   projectName: string

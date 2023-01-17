@@ -2,6 +2,7 @@ export enum PROJECTTYPE {
   VUE = 'vue',
   REACT = 'react',
   LIB = 'lib',
+  OTHER = 'other',
 }
 
 export enum UILIBTYPE {
@@ -27,4 +28,8 @@ export enum BUILDLIBTYPE {
 export enum RUNENVTYPE {
   NODE = 'node',
   BROWSER = 'browser',
+}
+
+export enum OTHERTYPE {
+  BMS = 'bms',
 }

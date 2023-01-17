@@ -20,6 +20,7 @@ export const templatePath = {
   tsup: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-template/gulp-tsup'),
   rollup: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-template/gulp-rollup'),
   browser: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-play'),
+  bms: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/other/bms'),
 }
 export const libTemplateName = {
   tsup: 'template-node-tsup',

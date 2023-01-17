@@ -1,10 +1,11 @@
 import chalk from 'chalk'
-import { PROJECTTYPE } from '../../utils'
+import { PROJECTTYPE} from '../../utils'
 import { runRuntimeVue } from './runtime-vue'
 import { runRuntimeLib } from './runtime-lib'
 import { runRuntimeReact } from './runtime-react'
-import type { ILibOption, IViteProjOption } from '../../utils'
-export async function run(option: IViteProjOption & ILibOption) {
+import { runRuntimeOther } from './runtime-other'
+import type { ILibOption, IViteProjOption, IOtherOption } from '../../utils'
+export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
   const {
     projectName,
     projectType,
@@ -14,6 +15,7 @@ export async function run(option: IViteProjOption & ILibOption) {
     unitTestLibType,
     envType,
     buildLibType,
+    otherType,
   } = option
 
   console.log(chalk.blueBright.bold(`\nstart creating project <${projectName}> ...`))
@@ -57,5 +59,16 @@ export async function run(option: IViteProjOption & ILibOption) {
       buildLibType,
     }
     await runRuntimeLib(libOption)
+  }
+
+  if (projectType === PROJECTTYPE.OTHER) {
+    const otherOption = {
+      projectName,
+      projectPath,
+      projectType,
+      unitTestLibType,
+      otherType,
+    }
+    await runRuntimeOther(otherOption)
   }
 }

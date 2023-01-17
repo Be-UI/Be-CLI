@@ -4,6 +4,9 @@ import chalk from 'chalk'
 import readdirp from 'readdirp'
 import { addBaseUnitTest } from '../add-unit-test'
 import { readPackageJson, writePackageJson } from '../read-write-package'
+import { RUNENVTYPE, libTemplateName, templatePath } from '../../../utils'
+
+import type { ILibOption } from '../../../utils'
 export const runRuntimeLib = async(option: ILibOption) => {
   const {
     projectName,
