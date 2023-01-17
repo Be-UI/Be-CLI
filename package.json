@@ -3,7 +3,7 @@
   "description": "A cli for quickly generating project template",
   "private": false,
   "type": "module",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "homepage": "https://github.com/Be-UI/Be-CLI#readme",
   "keywords": [
     "vue3",
