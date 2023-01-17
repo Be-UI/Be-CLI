@@ -1,3 +1,24 @@
+## [1.2.7](https://github.com/Be-UI/Be-CLI/compare/v1.2.5...v1.2.7) (2023-01-17)
+
+
+### Bug Fixes
+
+* fix path error ([#30](https://github.com/Be-UI/Be-CLI/issues/30)) ([79bc387](https://github.com/Be-UI/Be-CLI/commit/79bc387f1c06b2e1223cdfd75c5ccd12888883f9))
+
+
+
+## [1.2.5](https://github.com/Be-UI/Be-CLI/compare/v1.2.1...v1.2.5) (2023-01-17)
+
+
+
+## [1.2.1](https://github.com/Be-UI/Be-CLI/compare/v1.2.0...v1.2.1) (2023-01-17)
+
+
+
+# [1.2.0](https://github.com/Be-UI/Be-CLI/compare/v1.1.0...v1.2.0) (2023-01-17)
+
+
+
 # [1.1.0](https://github.com/Be-UI/Be-CLI/compare/v1.0.8...v1.1.0) (2023-01-17)
 
 
