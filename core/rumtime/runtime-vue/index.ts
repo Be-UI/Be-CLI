@@ -30,10 +30,10 @@ export const runRuntimeVue = async(option: IViteProjOption) => {
     // 添加单元测试
     await addBaseUnitTest(packageJson, option, '')
     if (unitTestLibType === 'vitest')
-      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
+      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
 
     if (unitTestLibType === 'jest') {
-      packageJson.devDependencies['@vue/test-utils'] = '^2.0.2'
+      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
       packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
     }
 

@@ -17,9 +17,9 @@ export async function addBaseUnitTest(
     console.log(chalk.blueBright.bold('\nstart setting vitest ...'))
 
     // package.json添加依赖
-    packageJson.devDependencies['@vitest/coverage-c8'] = '^0.22.1'
-    packageJson.devDependencies['@vitest/ui'] = '0.22.1'
-    packageJson.devDependencies.vitest = '0.22.1'
+    packageJson.devDependencies['@vitest/coverage-c8'] = '^0.23.4'
+    packageJson.devDependencies['@vitest/ui'] = '^0.23.4'
+    packageJson.devDependencies.vitest = '^0.23.4'
     packageJson.devDependencies.jsdom = '^20.0.0'
 
     // package.json添加指令
