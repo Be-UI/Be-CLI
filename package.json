@@ -31,13 +31,16 @@
   },
   "scripts": {
     "init": "pnpm i",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint --fix ./ --ext .vue,.js,.ts,.jsx,.tsx,.json ",
     "dev": "cross-env ENV=BECLIDEV esno core/index.ts",
     "build": "pnpm run clean && rollup -c build-script/rollup.config.js",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json --commit --push --tag",
     "publish": "pnpm publish --no-git-checks --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "prepare": "husky install",
+    "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
+    "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
     "clean": "rimraf dist"
   },
   "dependencies": {
@@ -52,6 +55,8 @@
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.10",
     "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
@@ -66,6 +71,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.32.0",
     "esno": "^0.16.3",
+    "husky": "^7.0.4",
     "rimraf": "^4.1.0",
     "rollup": "^3.10.0",
     "rollup-plugin-cleanup": "^3.2.1",
@@ -77,6 +83,12 @@
     "unbuild": "^0.7.4",
     "vite": "^4.0.4",
     "vitest": "^0.27.1"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": [
+      "eslint ./ --fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
