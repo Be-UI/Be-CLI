@@ -7,6 +7,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import progress from 'vite-plugin-progress'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import viteCompression from 'vite-plugin-compression'
+import { viteImgCompress } from 'unplugin-img-compress'
 // IMPORT_FLAG
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,6 +29,12 @@ export default defineConfig({
       },
     }),
     viteCompression(),
+    viteImgCompress({
+      APIKey: 'kZgn8pxfdjQjKFmf2StLq7CY4TqMgs0T',
+      dir: '', // runtime = build 时无用，图片直接从钩子里取, 这里直接传空
+      runtime: 'build',
+      mode: 'once',
+    }),
   ],
   envDir: './env',
   css: {
