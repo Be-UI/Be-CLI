@@ -62,7 +62,7 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-progress": "^0.0.6",
     "vue-tsc": "^1.0.24",
-    "unplugin-img-compress": "^1.0.5"
+    "unplugin-img-compress": "^1.0.7"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [
