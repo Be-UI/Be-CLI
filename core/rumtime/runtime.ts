@@ -1,8 +1,9 @@
 import chalk from 'chalk'
+import { PROJECTTYPE } from '../../utils'
 import { runRuntimeVue } from './runtime-vue'
-import { runRuntimeLib } from "./runtime-lib";
-import { runRuntimeReact } from "./runtime-react";
-import {ILibOption, IViteProjOption, PROJECTTYPE} from "../../utils";
+import { runRuntimeLib } from './runtime-lib'
+import { runRuntimeReact } from './runtime-react'
+import type { ILibOption, IViteProjOption } from '../../utils'
 export async function run(option: IViteProjOption & ILibOption) {
   const {
     projectName,
@@ -18,7 +19,7 @@ export async function run(option: IViteProjOption & ILibOption) {
   console.log(chalk.blueBright.bold(`\nstart creating project <${projectName}> ...`))
 
   // react project template runtime
-  if(projectType === PROJECTTYPE.REACT){
+  if (projectType === PROJECTTYPE.REACT) {
     const viteReactOption = {
       projectName,
       projectPath,
@@ -46,7 +47,7 @@ export async function run(option: IViteProjOption & ILibOption) {
   }
 
   // lib project template runtime
-  if(projectType === PROJECTTYPE.LIB){
+  if (projectType === PROJECTTYPE.LIB) {
     const libOption = {
       projectName,
       projectPath,

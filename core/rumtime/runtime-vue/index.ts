@@ -1,9 +1,9 @@
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import type { IViteProjOption } from '../../../utils'
 import { templatePath } from '../../../utils'
-export const runRuntimeVue = async (option: IViteProjOption) => {
+import type { IViteProjOption } from '../../../utils'
+export const runRuntimeVue = async(option: IViteProjOption) => {
   const {
     projectName,
     projectPath,
@@ -39,7 +39,7 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
 
       // package.json添加依赖
       packageJson.devDependencies['vite-plugin-windicss'] = '^1.8.7'
-      packageJson.devDependencies['windicss'] = '^3.5.6'
+      packageJson.devDependencies.windicss = '^3.5.6'
 
       // 添加 windicss.config
       await fs.copySync(templatePath[cssLibType as keyof typeof templatePath], projectPath)
@@ -142,8 +142,7 @@ export const runRuntimeVue = async (option: IViteProjOption) => {
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
     spinner.succeed()
-  }
-  catch (e) {
+  } catch (e) {
     spinner.fail()
     console.log(chalk.redBright.bold(e))
   }

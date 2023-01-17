@@ -1,11 +1,11 @@
 {
   "name": "@template-play/play",
+  "description": "",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
   "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -27,6 +27,3 @@ export const counterSlice = createSlice({
 })
 // 导出加减的方法
 export const { increment, decrement } = counterSlice.actions
-
-// 默认导出
-export default counterSlice.reducer

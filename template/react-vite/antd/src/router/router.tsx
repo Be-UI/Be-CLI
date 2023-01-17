@@ -7,7 +7,7 @@ export const routes = [
   {
     path: '/',
     index: true,
-    element: <Navigate to= "/home"/>,
+    element: <Navigate to="/home" />,
   },
   {
     path: 'home',

@@ -1,11 +1,11 @@
 {
   "name": "@template-node-rollup/build",
+  "description": "",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
   "keywords": [],
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "build:split": "cross-env BUILD_MODE=split gulp -require sucrase/register/ts -f gulp-file.ts",
     "build:all": "cross-env BUILD_MODE=all gulp -require sucrase/register/ts -f gulp-file.ts"

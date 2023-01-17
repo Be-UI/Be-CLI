@@ -1,16 +1,19 @@
 {
   "name": "template-node-rollup",
+  "description": "",
+  "private": false,
   "type": "module",
   "version": "1.0.0",
-  "private": false,
   "packageManager": "^pnpm@7.0.0",
-  "description": "",
-  "author": "",
+  "keywords": [],
   "license": "MIT",
+  "author": "",
   "homepage": "",
   "repository": "",
   "bugs": "",
-  "keywords": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,9 +21,6 @@
       "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
@@ -50,34 +50,34 @@
     "ora": "^6.1.2"
   },
   "dependencies": {
-    "chalk": "4.1.2",
-    "fs-extra": "^10.0.1",
+    "chalk": "5.2.0",
+    "fs-extra": "^11.1.0",
     "ora": "^6.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
-    "@baiwusanyu/eslint-config": "^1.0.6",
-    "@changesets/cli": "^2.23.1",
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1",
+    "@baiwusanyu/eslint-config": "^1.0.10",
+    "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "@template-node-rollup/build": "*",
     "@template-node-rollup/entry": "*",
     "@template-node-rollup/play": "*",
     "@template-node-rollup/runtime": "*",
     "@template-node-rollup/utils": "*",
     "@types/chalk": "^2.2.0",
-    "@types/fs-extra": "^9.0.13",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.0.0",
     "bumpp": "^8.2.1",
     "conventional-changelog-cli": "^2.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.18.0",
+    "eslint": "8.32.0",
     "esno": "^0.16.3",
     "gulp": "^4.0.2",
-    "husky": "^7.0.4",
-    "pnpm": "^6.3.0",
-    "rimraf": "^3.0.2",
-    "typescript": "4.7.4"
+    "husky": "^8.0.3",
+    "rimraf": "^4.1.0",
+    "typescript": "4.9.4"
+
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [

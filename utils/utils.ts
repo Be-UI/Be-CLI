@@ -1,14 +1,14 @@
 // import { spawn } from 'child_process'
 import fs from 'fs-extra'
 import prompts from 'prompts'
-import type { IPackageInfo } from './types'
 import { cliPackagePath } from './path'
+import type { IPackageInfo } from './types'
 export const getConfigFile = (): IPackageInfo => {
   const content = fs.readFileSync(cliPackagePath, 'utf-8')
   return JSON.parse(content) as IPackageInfo
 }
 
-export const promptsRun = async (option: prompts.PromptObject[]) => {
+export const promptsRun = async(option: prompts.PromptObject[]) => {
   const res = await prompts(option)
   return { ...res }
 }

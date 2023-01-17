@@ -37,10 +37,10 @@ export const parallelTask = () => {
             let targetPath = path.resolve(process.cwd(), distDirMap[distDirMapKey])
             // 替换格式后缀 .[format] -> .js / .cjs
             targetPath = targetPath.replace('[format]', formatVal.format)
-              // @ts-ignore
-              targetPath = targetPath.replaceAll('\\', '/')
+            // @ts-expect-error replaceAll error
+            targetPath = targetPath.replaceAll('\\', '/')
 
-              // 生产相对路径
+            // 生产相对路径
             const relativePath = relativeDir(targetPath, filePath)
             // 替换依赖路径内容
             content = content.replaceAll(distDirMapKey, relativePath)
@@ -53,4 +53,3 @@ export const parallelTask = () => {
 
   return parallelTaskList
 }
-

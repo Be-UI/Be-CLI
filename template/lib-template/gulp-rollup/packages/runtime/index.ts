@@ -7,4 +7,3 @@ export const runtime = () => {
 export const runtimeBrowser = () => {
   log('info', 'test running....')
 }
-

@@ -17,12 +17,12 @@ const baseConfig = {
 
 }
 const configOptions = []
-export const build = async (config, buildConfig) => {
+export const build = async(config, buildConfig) => {
   const bundle = await rollup(config)
   return Promise.all(
-      buildConfig.map((option) => {
-        return bundle.write(option)
-      }),
+    buildConfig.map((option) => {
+      return bundle.write(option)
+    }),
   )
 }
 
@@ -47,7 +47,7 @@ if (buildMode === 'all') {
       format: 'es',
     },
   ]
-   build(typeConfig, buildTypeConfig)
+  build(typeConfig, buildTypeConfig)
 }
 
 // You can output packaged products according to your desired folder structure

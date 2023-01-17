@@ -10,11 +10,11 @@ console.log('当前环境：', import.meta.env.VITE_PROJECT_ENV)
 // test request
 getHomeData({ appKey: 'appKey' })
 
-function App() {
+const App = () => {
   return (
       <div id="app_index">
         <HelloWord msg="Be-CLI" />
-          <Suspense fallback={<Spin/>}>
+          <Suspense fallback={<Spin />}>
               {RoutesList()}
           </Suspense>
       </div>

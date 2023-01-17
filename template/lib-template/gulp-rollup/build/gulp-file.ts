@@ -14,7 +14,7 @@ if (buildMode === 'all') {
 
 if (buildMode === 'split') {
   taskList = [
-      ...buildSplitPackages,
+    ...buildSplitPackages,
     ...rewritePath(),
   ]
 }
