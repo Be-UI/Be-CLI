@@ -32,4 +32,6 @@ export enum RUNENVTYPE {
 
 export enum OTHERTYPE {
   BMS = 'bms',
+  PUVUE = 'puvue',
+  PUREACT = 'pureact',
 }

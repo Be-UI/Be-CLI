@@ -1,40 +1,32 @@
 import ora from 'ora'
 import chalk from 'chalk'
 import fs from 'fs-extra'
-import { filterFile, templatePath } from '../../../utils'
+import { OTHERTYPE, filterFile, templatePath } from '../../../utils'
 import { readPackageJson, writePackageJson } from '../read-write-package'
-import { addBaseUnitTest } from '../add-unit-test'
+import { addBaseUnitTest, addUnitTestDeps } from '../add-unit-test'
 import type { IOtherOption } from '../../../utils'
 
 export async function runRuntimeOther(option: IOtherOption) {
   const {
     projectName,
     projectPath,
-    unitTestLibType,
     otherType,
   } = option
   const spinner = ora('Loading').start()
   try {
     spinner.color = 'blue'
-    // TODO
-
-    // 复制模板项目到目标路径（vue -> element-plus / antd vue ）
-    spinner.color = 'blue'
     await fs.copySync(templatePath[otherType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
     // 读取 package.json ，修改名称
-    const packageJson = await readPackageJson(option)
+    let packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
     // 添加单元测试
-    await addBaseUnitTest(packageJson, option, '')
-    if (unitTestLibType === 'vitest')
-      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
-
-    if (unitTestLibType === 'jest') {
-      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
-      packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
-    }
+    await addBaseUnitTest(packageJson, option, otherType === OTHERTYPE.PUREACT ? 'React' : '')
+    if (otherType === OTHERTYPE.PUREACT)
+      packageJson = addUnitTestDeps(packageJson, option, 'React')
+    else
+      packageJson = addUnitTestDeps(packageJson, option, 'Vue')
 
     // 写入package.json
     await writePackageJson(projectPath, packageJson)

@@ -97,8 +97,8 @@ export const otherTypeOptions = [{
   type: 'select',
   name: 'otherType',
   message: 'please select the project template',
-  choices: ['bms'].map((item, index) => {
-    const valueDict = [OTHERTYPE.BMS]
+  choices: ['bms', 'pure vue', 'pure react'].map((item, index) => {
+    const valueDict = [OTHERTYPE.BMS, OTHERTYPE.PUVUE, OTHERTYPE.PUREACT]
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }
   }),

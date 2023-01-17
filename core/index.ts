@@ -81,3 +81,6 @@ export function BeCLIRun() {
 
   program.parse()
 }
+
+if (process.env.ENV === 'BECLIDEV')
+  BeCLIRun()

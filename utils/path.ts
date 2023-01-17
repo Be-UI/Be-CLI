@@ -21,6 +21,8 @@ export const templatePath = {
   rollup: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-template/gulp-rollup'),
   browser: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/lib-play'),
   bms: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/other/bms'),
+  puvue: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/other/pure-vue'),
+  pureact: path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template/other/pure-react'),
 }
 export const libTemplateName = {
   tsup: 'template-node-tsup',

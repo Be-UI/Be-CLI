@@ -53,3 +53,34 @@ export async function addBaseUnitTest(
     console.log(chalk.greenBright.bold('\nset jest success !'))
   }
 }
+
+export function addUnitTestDeps(
+  packageJson: any,
+  option: ILibOption | IViteProjOption | IOtherOption,
+  type: string) {
+  const { unitTestLibType } = option
+  if (type === 'React') {
+    if (unitTestLibType === 'vitest') {
+      packageJson.devDependencies['@testing-library/react'] = '^12.0.0'
+      packageJson.devDependencies['@testing-library/user-event'] = '^14.4.2'
+    }
+
+    if (unitTestLibType === 'jest') {
+      packageJson.devDependencies['@testing-library/react'] = '^12.0.0'
+      packageJson.devDependencies['@testing-library/user-event'] = '^14.4.2'
+      packageJson.devDependencies['@babel/preset-react'] = '^7.18.6'
+    }
+  }
+
+  if (type === 'Vue') {
+    if (unitTestLibType === 'vitest')
+      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
+
+    if (unitTestLibType === 'jest') {
+      packageJson.devDependencies['@vue/test-utils'] = '^2.2.7'
+      packageJson.devDependencies['@vue/babel-plugin-jsx'] = '^1.1.1'
+    }
+  }
+
+  return packageJson
+}
