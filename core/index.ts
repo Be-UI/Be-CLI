@@ -5,7 +5,7 @@
 
 import * as path from 'path'
 import { Command } from 'commander'
-import fs from 'fs-extra'
+
 import {
   PROJECTTYPE,
   buildLibTypeOptions,
@@ -84,7 +84,7 @@ export function BeCLIRun() {
 }
 
 async function start() {
-  const pkg = await fs.readJson('./package.json')
+  const pkg = getConfigFile()
   const argv = process.argv
   const len = argv.length
   if (argv[len - 1] === '--v')
