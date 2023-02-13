@@ -25,7 +25,8 @@
   "main": "index.js",
   "files": [
     "dist",
-    "entry"
+    "entry",
+    "template"
   ],
   "bin": {
     "be-ui-cli": "entry/index.js"
