@@ -1,3 +1,11 @@
+## [1.2.9](https://github.com/Be-UI/Be-CLI/compare/v1.2.8...v1.2.9) (2023-02-13)
+
+
+
+## [1.2.8](https://github.com/Be-UI/Be-CLI/compare/v1.2.7...v1.2.8) (2023-02-13)
+
+
+
 ## [1.2.7](https://github.com/Be-UI/Be-CLI/compare/v1.2.5...v1.2.7) (2023-01-17)
 
 
