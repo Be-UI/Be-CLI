@@ -20,7 +20,7 @@ import {
   uiLibTypeReactOptions,
   unitTestTypeOptions,
 } from '../utils'
-import { run } from './rumtime/runtime'
+import { run } from './runtime/runtime'
 
 export function BeCLIRun() {
 // 获取package 文件配置信息
