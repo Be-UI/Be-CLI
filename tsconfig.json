@@ -22,7 +22,7 @@
     "/core/**/*.ts",
     "/core/**/*.d.ts",
     "/core/**/*.tsx",
-    "/utils/**/*.ts"
+    "/be-cli/utils/**/*.ts"
   ],
   // ts 排除的文件
   "exclude": ["node_modules", "**/__tests__/"],

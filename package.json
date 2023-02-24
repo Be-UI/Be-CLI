@@ -32,9 +32,9 @@
     "be-ui-cli": "entry/index.js"
   },
   "scripts": {
-    "init": "pnpm i",
+    "init": "node build-script/install.js",
     "lint:fix": "eslint --fix ./ --ext .vue,.js,.ts,.jsx,.tsx,.json ",
-    "dev": "cross-env ENV=BECLIDEV esno core/index.ts",
+    "dev": "cross-env ENV=BECLIDEV esno be-cli/index.ts",
     "build": "pnpm run clean && rollup -c build-script/rollup.config.js && node build-script/build-pkg.js",
     "release": "bumpp package.json --commit --push --tag",
     "publish": "pnpm publish --no-git-checks --access public",
@@ -83,7 +83,8 @@
     "typescript": "4.9.4",
     "unbuild": "^0.7.4",
     "vite": "^4.0.4",
-    "vitest": "^0.27.1"
+    "vitest": "^0.27.1",
+    "figlet": "^1.5.2"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [
