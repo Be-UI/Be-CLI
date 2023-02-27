@@ -42,8 +42,7 @@
     "prepare": "husky install",
     "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
     "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
-    "clean": "rimraf dist",
-    "test": "esno test-download.ts"
+    "clean": "rimraf dist"
   },
   "peerDependencies": {
     "cac": "^6.7.14",

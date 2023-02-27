@@ -11,38 +11,36 @@ export const runRuntimeLib = async(option: ILibOption) => {
   const {
     projectName,
     projectPath,
-    buildLibType,
-    envType,
+    templateDir
   } = option
   const spinner = ora('Loading').start()
   try {
     // 复制模板项目到目标路径
     spinner.color = 'blue'
-    await fs.copySync(templatePath[buildLibType as keyof typeof templatePath], projectPath)
+    await fs.copySync(templateDir, projectPath)
 
-    // TODO: 读取模板名称
-    const templateName = libTemplateName[buildLibType as keyof typeof libTemplateName]
-    // TODO: 读取 package.json
+    // 读取 package.json
     let packageJson = await readPackageJson(option)
-    // TODO: 修改模板名称为用户输入名称名称
-    const packageJsonStr = JSON.stringify(packageJson).replaceAll(templateName, projectName)
+    const name = packageJson.name
+    // 修改模板名称为用户输入名称名称
+    const packageJsonStr = JSON.stringify(packageJson).replaceAll(name, projectName)
     packageJson = JSON.parse(packageJsonStr)
-    // TODO: 修改引用名称
+    // 修改引用名称
     for await (const entry of readdirp(projectPath, { fileFilter: ['!.DS_Store'] })) {
       const { fullPath } = entry
       const context = await fs.readFile(`${fullPath}`)
-      const contextStr = context.toString().replaceAll(templateName, projectName)
+      const contextStr = context.toString().replaceAll(name ,projectName)
       await fs.outputFileSync(`${fullPath}`, contextStr)
     }
-    // TODO: 修改 play 的子仓库名
+    // 修改 play 的子仓库名
     for await (const entry of readdirp(`${projectPath}/play`, { fileFilter: ['!.DS_Store'] })) {
       const { fullPath } = entry
       const context = await fs.readFile(`${fullPath}`)
-      const contextStr = context.toString().replaceAll('template-play', projectName)
+      const contextStr = context.toString().replaceAll(`@be-ui-cli/${name}-play`, projectName)
       await fs.outputFileSync(`${fullPath}`, contextStr)
     }
 
-    // TODO: 写入package.json
+    // 写入package.json
     await writePackageJson(projectPath, packageJson)
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)

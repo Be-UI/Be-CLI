@@ -61,10 +61,7 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
     const libOption = {
       projectName,
       projectPath,
-      projectType,
-      unitTestLibType,
-      envType,
-      buildLibType,
+      templateDir
     }
     await runRuntimeLib(libOption)
   }
