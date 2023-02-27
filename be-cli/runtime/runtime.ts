@@ -19,10 +19,12 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
   } = option
 
   console.log(chalk.blueBright.bold(`\nstart creating project <${projectName}> ...`))
-
   // react project template runtime
   if (projectType === PROJECTTYPE.REACT) {
-    const viteReactOption = {
+    const uiLib= uiLibType === 'element' ? 'ep' : 'antd'
+    const templatePathName = `${projectType}-${uiLib}-${cssLibType}-${unitTestLibType}`
+    console.log(templatePathName)
+   /* const viteReactOption = {
       projectName,
       projectPath,
       uiLibType,
@@ -31,12 +33,14 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
       unitTestLibType,
     }
     await runRuntimeReact(viteReactOption)
-    return
+    return*/
   }
 
   // vue project template runtime
   if (projectType === PROJECTTYPE.VUE) {
-    const viteVueOption = {
+    const uiLib= uiLibType === 'element' ? 'ep' : 'antd'
+    const templatePathName = `${projectType}-${uiLib}-${cssLibType}-${unitTestLibType}`
+    /*const viteVueOption = {
       projectName,
       projectPath,
       uiLibType,
@@ -44,13 +48,14 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
       projectType,
       unitTestLibType,
     }
-    await runRuntimeVue(viteVueOption)
-    return
+    await runRuntimeVue(viteVueOption)*/
+    console.log(templatePathName)
   }
 
   // lib project template runtime
   if (projectType === PROJECTTYPE.LIB) {
-    const libOption = {
+    const templatePathName = `${projectType}-${envType}-gulp-${buildLibType}-${unitTestLibType}`
+    /*const libOption = {
       projectName,
       projectPath,
       projectType,
@@ -58,17 +63,21 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
       envType,
       buildLibType,
     }
-    await runRuntimeLib(libOption)
+    await runRuntimeLib(libOption)*/
+    console.log(templatePathName)
   }
 
   if (projectType === PROJECTTYPE.OTHER) {
-    const otherOption = {
+    const templatePathName = otherType === 'bms' ? 'bms-simple' :
+      otherType === 'puvue' ? 'pure-vue' : 'pure-react'
+    /*const otherOption = {
       projectName,
       projectPath,
       projectType,
       unitTestLibType,
       otherType,
     }
-    await runRuntimeOther(otherOption)
+    await runRuntimeOther(otherOption)*/
+    console.log(templatePathName)
   }
 }

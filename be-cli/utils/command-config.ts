@@ -5,14 +5,14 @@ import type * as prompts from 'prompts'
 export const projectNameOptions = [{
   type: 'text',
   name: 'projectName',
-  message: 'please input your project name',
+  message: 'Please input your project name',
 }] as prompts.PromptObject[]
 
 // 选择模板类型
 export const projectTypeOptions = [{
   type: 'select',
   name: 'projectType',
-  message: 'please select a template type',
+  message: 'Please select a template type',
   choices: ['vue + vite template', 'react + vite template', 'lib template', 'other'].map((item, index) => {
     const valueDict = [PROJECTTYPE.VUE, PROJECTTYPE.REACT, PROJECTTYPE.LIB, PROJECTTYPE.OTHER]
     // 选择时的标题和选择时的值
@@ -24,7 +24,7 @@ export const projectTypeOptions = [{
 export const uiLibTypeOptions = [{
   type: 'select',
   name: 'uiLibType',
-  message: 'please select a ui component library',
+  message: 'Please select a ui component library',
   choices: ['element-plus', 'ant design vue'].map((item, index) => {
     const valueDict = [UILIBTYPE.ELEMENT, UILIBTYPE.ANTD]
     // 选择时的标题和选择时的值
@@ -36,7 +36,7 @@ export const uiLibTypeOptions = [{
 export const uiLibTypeReactOptions = [{
   type: 'select',
   name: 'uiLibType',
-  message: 'please select a ui component library',
+  message: 'Please select a ui component library',
   choices: ['ant design'].map((item, index) => {
     const valueDict = [UILIBTYPE.ANTD]
     // 选择时的标题和选择时的值
@@ -48,7 +48,7 @@ export const uiLibTypeReactOptions = [{
 export const cssLibTypeOptions = [{
   type: 'select',
   name: 'cssLibType',
-  message: 'please select a css atom library',
+  message: 'Please select a css atom library',
   choices: ['windicss', 'unocss'].map((item, index) => {
     const valueDict = [CSSLIBTYPE.WINDICSS, CSSLIBTYPE.UNOCSS, 'no']
     // 选择时的标题和选择时的值
@@ -60,7 +60,7 @@ export const cssLibTypeOptions = [{
 export const unitTestTypeOptions = [{
   type: 'select',
   name: 'unitTestLibType',
-  message: 'please select a unit test library',
+  message: 'Please select a unit test library',
   choices: ['vitest', 'jest'].map((item, index) => {
     const valueDict = [UNITTESTLIBTYPE.VITEST, UNITTESTLIBTYPE.JEST, 'no']
     // 选择时的标题和选择时的值
@@ -72,7 +72,7 @@ export const unitTestTypeOptions = [{
 export const buildLibTypeOptions = [{
   type: 'select',
   name: 'buildLibType',
-  message: 'please choose your packaging tool',
+  message: 'Please choose your packaging tool',
   choices: ['tsup', 'rollup'].map((item, index) => {
     const valueDict = [BUILDLIBTYPE.TSUP, BUILDLIBTYPE.ROLLUP]
     // 选择时的标题和选择时的值
@@ -84,7 +84,7 @@ export const buildLibTypeOptions = [{
 export const envTypeOptions = [{
   type: 'select',
   name: 'envType',
-  message: 'please select your library runtime environment',
+  message: 'Please select your library runtime environment',
   choices: ['node', 'browser'].map((item, index) => {
     const valueDict = [RUNENVTYPE.NODE, RUNENVTYPE.BROWSER]
     // 选择时的标题和选择时的值
@@ -96,7 +96,7 @@ export const envTypeOptions = [{
 export const otherTypeOptions = [{
   type: 'select',
   name: 'otherType',
-  message: 'please select the project template',
+  message: 'Please select the project template',
   choices: ['bms', 'pure vue', 'pure react'].map((item, index) => {
     const valueDict = [OTHERTYPE.BMS, OTHERTYPE.PUVUE, OTHERTYPE.PUREACT]
     // 选择时的标题和选择时的值

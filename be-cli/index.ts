@@ -61,7 +61,10 @@ export function BeCLIRun() {
     }
 
     // 选择使用单元测试
-    const unitTestRes = await promptsRun(unitTestTypeOptions)
+    let unitTestRes = {}
+    if(typeRes.projectType !== PROJECTTYPE.OTHER){
+      unitTestRes = await promptsRun(unitTestTypeOptions)
+    }
 
     // 项目存储路径
     const rootPath = process.cwd()
@@ -78,9 +81,8 @@ export function BeCLIRun() {
       ...unitTestRes,
       ...otherRes,
     } as any
-    console.log(options)
     // 开始运行命令
-    //await runtimeStart(options)
+    await runtimeStart(options)
   })
 
   program.parse()
