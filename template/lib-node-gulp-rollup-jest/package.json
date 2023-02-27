@@ -42,7 +42,9 @@
     "clean": "rimraf dist",
     "prepare": "husky install && pnpm run husky:step1 && pnpm run husky:step2",
     "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
-    "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg"
+    "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "peerDependencies": {
     "chalk": "4.1.2",
@@ -76,7 +78,15 @@
     "gulp": "^4.0.2",
     "husky": "^8.0.3",
     "rimraf": "^4.1.0",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^27.5.1",
+    "ts-jest": "27.1.4",
+    "babel-jest": "^27.5.1",
+    "@types/jest": "^27.5.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-typescript": "^7.16.7"
 
   },
   "lint-staged": {
