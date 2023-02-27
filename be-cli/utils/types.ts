@@ -14,11 +14,13 @@ export interface ILibOption extends ICliOption{
   unitTestLibType: string
   envType: string
   buildLibType: string
+  templateDir: string
 }
 
-export interface IOtherOption extends ICliOption{
-  unitTestLibType: string
-  otherType: string
+export type IOtherOption = {
+  templateDir: string
+  projectName: string
+  projectPath: string
 }
 
 export interface ICliOption {

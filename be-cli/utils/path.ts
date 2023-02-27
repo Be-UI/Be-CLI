@@ -29,4 +29,5 @@ export const libTemplateName = {
   rollup: 'template-node-rollup',
 }
 
+export const getTemplateDir = ()=>path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'template')
 export const cliPackagePath = path.resolve(process.env.ENV === 'BECLIDEV' ? cwd() : __dirnameNew, 'package.json')
