@@ -18,7 +18,7 @@ export async function runRuntimeOther(option: IOtherOption) {
     await fs.copySync(templatePath[otherType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
     // TODO: 读取 package.json ，修改名称
-    let packageJson = await readPackageJson(option)
+    const packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
     // 添加单元测试
