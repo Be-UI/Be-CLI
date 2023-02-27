@@ -19,7 +19,9 @@
     "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
     "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "optimizeImages": "tiny --once"
+    "test": "vitest",
+    "test:update": "vitest -u",
+    "test:coverage": "vitest --coverageu"
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
@@ -61,7 +63,13 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-progress": "^0.0.6",
     "vite-plugin-windicss": "^1.8.10",
-    "windicss": "^3.5.6"
+    "windicss": "^3.5.6",
+    "@vitest/coverage-c8": "^0.23.4",
+    "vitest": "^0.23.4",
+    "@vitest/ui": "^0.23.4",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^14.4.2",
+    "jsdom": "^20.0.0"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [

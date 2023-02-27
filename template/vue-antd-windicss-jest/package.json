@@ -19,7 +19,8 @@
     "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
     "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "optimizeImages": "tiny --once"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.12",
@@ -64,7 +65,17 @@
     "vite-plugin-progress": "^0.0.6",
     "vue-tsc": "^1.0.24",
     "vite-plugin-windicss": "^1.8.10",
-    "windicss": "^3.5.6"
+    "windicss": "^3.5.6",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^27.5.1",
+    "ts-jest": "27.1.4",
+    "babel-jest": "^27.5.1",
+    "@types/jest": "^27.5.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-typescript": "^7.16.7",
+    "@vue/test-utils": "^2.3.0",
+    "@vue/babel-plugin-jsx": "^1.1.1"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [
