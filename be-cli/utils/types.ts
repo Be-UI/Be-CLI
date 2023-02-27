@@ -10,11 +10,10 @@ export interface IViteProjOption extends ICliOption{
   unitTestLibType: string
 }
 
-export interface ILibOption extends ICliOption{
-  unitTestLibType: string
-  envType: string
-  buildLibType: string
+export interface ILibOption{
   templateDir: string
+  projectName: string
+  projectPath: string
 }
 
 export type IOtherOption = {
