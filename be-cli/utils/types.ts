@@ -4,10 +4,10 @@ export interface IPackageInfo {
   description: string
   author: string
 }
-export interface IViteProjOption extends ICliOption{
-  uiLibType: string
-  cssLibType: string
-  unitTestLibType: string
+export interface IViteProjOption {
+  templateDir: string
+  projectName: string
+  projectPath: string
 }
 
 export interface ILibOption{
@@ -26,6 +26,12 @@ export interface ICliOption {
   projectType: string
   projectName: string
   projectPath: string
+  uiLibType: string
+  cssLibType: string
+  unitTestLibType: string
+  envType: string
+  buildLibType: string
+  otherType: string
 }
 
 export interface ISpawnOptions {

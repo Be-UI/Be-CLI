@@ -10,27 +10,20 @@ export const runRuntimeVue = async(option: IViteProjOption) => {
   const {
     projectName,
     projectPath,
-    uiLibType,
+    templateDir,
   } = option
 
   const spinner = ora('Loading').start()
   try {
     // 复制模板项目到目标路径（vue -> element-plus / antd vue ）
     spinner.color = 'blue'
-    await fs.copySync(templatePath[uiLibType as keyof typeof templatePath], projectPath, { filter: filterFile })
+    await fs.copySync(templateDir, projectPath, { filter: filterFile })
 
-    // TODO: 读取 package.json ，修改名称
+    // 读取 package.json ，修改名称
     const packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
-    // 设置原子css
-    // await addAtomCss(packageJson, option, 'ts')
-
-    // 添加单元测试
-    // await addBaseUnitTest(packageJson, option, '')
-    // packageJson = addUnitTestDeps(packageJson, option, 'Vue')
-
-    // TODO: 写入package.json
+    // 写入package.json
     await writePackageJson(projectPath, packageJson)
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
