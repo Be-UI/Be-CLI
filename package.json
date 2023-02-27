@@ -32,7 +32,7 @@
     "be-ui-cli": "entry/index.js"
   },
   "scripts": {
-    "init": "node build-script/install.js",
+    "init": "pnpm install",
     "lint:fix": "eslint --fix ./ --ext .vue,.js,.ts,.jsx,.tsx,.json ",
     "dev": "cross-env ENV=BECLIDEV esno be-cli/bin/index.ts create",
     "build": "pnpm run clean && rollup -c build-script/rollup.config.js && node build-script/build-pkg.js",
@@ -52,11 +52,7 @@
     "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
-    "readdirp": "^3.6.0",
-    "@octokit/core": "^4.2.0",
-    "p-map": "^5.5.0",
-    "p-retry": "^5.1.1",
-    "node-fetch": "^2.6.9"
+    "readdirp": "^3.6.0"
   },
   "dependencies": {
     "cac": "^6.7.14",
@@ -66,11 +62,7 @@
     "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
-    "readdirp": "^3.6.0",
-    "@octokit/core": "^4.2.0",
-    "p-map": "^5.5.0",
-    "p-retry": "^5.1.1",
-    "node-fetch": "^2.6.9"
+    "readdirp": "^3.6.0"
   },
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.10",

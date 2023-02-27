@@ -1,4 +1,4 @@
-// import { spawn } from 'child_process'
+
 import fs from 'fs-extra'
 import prompts from 'prompts'
 import { cliPackagePath } from './path'
@@ -21,31 +21,3 @@ export const filterFile = (src: string) => {
 
   return true
 }
-
-/* const runCommand = (
-  command: string,
-  args: string[],
-  options: ISpawnOptions = {},
-): Promise<any> =>
-  new Promise((resolve, reject) => {
-    const executedCommand = spawn(command, args, {
-      stdio: 'inherit',
-      shell: true,
-      ...options,
-    } as any)
-
-    // fail
-    executedCommand.on('error', (error: string | undefined) => {
-      reject(new Error(error))
-      console.log(error)
-      process.exit(1)
-    })
-
-    // success
-    executedCommand.on('exit', (code: number) => {
-      if (code === 0)
-        resolve('')
-      else
-        reject(new Error('err'))
-    })
-  }) */

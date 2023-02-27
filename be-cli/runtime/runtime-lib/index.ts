@@ -2,16 +2,14 @@ import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 import readdirp from 'readdirp'
-import { addBaseUnitTest } from '../add-unit-test'
 import { readPackageJson, writePackageJson } from '../read-write-package'
-import { RUNENVTYPE, libTemplateName, templatePath } from '../../utils'
 
-import type { ILibOption } from '../../utils'
-export const runRuntimeLib = async(option: ILibOption) => {
+import type { IProjOption } from '../../utils'
+export const runRuntimeLib = async(option: IProjOption) => {
   const {
     projectName,
     projectPath,
-    templateDir
+    templateDir,
   } = option
   const spinner = ora('Loading').start()
   try {
@@ -29,7 +27,7 @@ export const runRuntimeLib = async(option: ILibOption) => {
     for await (const entry of readdirp(projectPath, { fileFilter: ['!.DS_Store'] })) {
       const { fullPath } = entry
       const context = await fs.readFile(`${fullPath}`)
-      const contextStr = context.toString().replaceAll(name ,projectName)
+      const contextStr = context.toString().replaceAll(name, projectName)
       await fs.outputFileSync(`${fullPath}`, contextStr)
     }
     // 修改 play 的子仓库名

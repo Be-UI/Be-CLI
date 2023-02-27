@@ -1,12 +1,10 @@
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import { filterFile, templatePath } from '../../utils'
-import { addBaseUnitTest, addUnitTestDeps } from '../add-unit-test'
-import { addAtomCss } from '../add-atom-css'
+import { filterFile } from '../../utils'
 import { readPackageJson, writePackageJson } from '../read-write-package'
-import type { IViteProjOption } from '../../utils'
-export const runRuntimeVue = async(option: IViteProjOption) => {
+import type { IProjOption } from '../../utils'
+export const runRuntimeVue = async(option: IProjOption) => {
   const {
     projectName,
     projectPath,
