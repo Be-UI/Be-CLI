@@ -19,35 +19,22 @@ export const runRuntimeLib = async(option: ILibOption) => {
     // 复制模板项目到目标路径
     spinner.color = 'blue'
     await fs.copySync(templatePath[buildLibType as keyof typeof templatePath], projectPath)
-    const templateName = libTemplateName[buildLibType as keyof typeof libTemplateName]
 
-    // 读取 package.json
+    // TODO: 读取模板名称
+    const templateName = libTemplateName[buildLibType as keyof typeof libTemplateName]
+    // TODO: 读取 package.json
     let packageJson = await readPackageJson(option)
-    // 修改名称
+    // TODO: 修改模板名称为用户输入名称名称
     const packageJsonStr = JSON.stringify(packageJson).replaceAll(templateName, projectName)
     packageJson = JSON.parse(packageJsonStr)
-
-    // 添加浏览器环境play
-    if (envType === RUNENVTYPE.BROWSER) {
-      const libTemplatePath = templatePath[envType as keyof typeof templatePath]
-      // 1.移删除node下dist的play
-      await fs.removeSync(`${projectPath}/play`)
-      // 2.移动browser的play到dist
-      await fs.copySync(libTemplatePath, `${projectPath}/play`)
-      // 3.修改主仓库 package.json dev指令为play的dev指令
-      packageJson.scripts.dev = `pnpm run --filter @${projectName}/play dev`
-    }
-
-    // 添加单元测试
-    await addBaseUnitTest(packageJson, option, 'Lib')
-
+    // TODO: 修改引用名称
     for await (const entry of readdirp(projectPath, { fileFilter: ['!.DS_Store'] })) {
       const { fullPath } = entry
       const context = await fs.readFile(`${fullPath}`)
       const contextStr = context.toString().replaceAll(templateName, projectName)
       await fs.outputFileSync(`${fullPath}`, contextStr)
     }
-    // 修改 play 的子仓库名
+    // TODO: 修改 play 的子仓库名
     for await (const entry of readdirp(`${projectPath}/play`, { fileFilter: ['!.DS_Store'] })) {
       const { fullPath } = entry
       const context = await fs.readFile(`${fullPath}`)
@@ -55,7 +42,7 @@ export const runRuntimeLib = async(option: ILibOption) => {
       await fs.outputFileSync(`${fullPath}`, contextStr)
     }
 
-    // 写入package.json
+    // TODO: 写入package.json
     await writePackageJson(projectPath, packageJson)
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
