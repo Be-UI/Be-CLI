@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 auto-imports.d.ts
 components.d.ts
+test-download.ts

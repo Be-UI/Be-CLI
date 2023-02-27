@@ -42,7 +42,8 @@
     "prepare": "husky install",
     "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
     "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "test": "esno test-download.ts"
   },
   "peerDependencies": {
     "cac": "^6.7.14",
@@ -52,7 +53,11 @@
     "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
-    "readdirp": "^3.6.0"
+    "readdirp": "^3.6.0",
+    "@octokit/core": "^4.2.0",
+    "p-map": "^5.5.0",
+    "p-retry": "^5.1.1",
+    "node-fetch": "^2.6.9"
   },
   "dependencies": {
     "cac": "^6.7.14",
@@ -62,7 +67,11 @@
     "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
-    "readdirp": "^3.6.0"
+    "readdirp": "^3.6.0",
+    "@octokit/core": "^4.2.0",
+    "p-map": "^5.5.0",
+    "p-retry": "^5.1.1",
+    "node-fetch": "^2.6.9"
   },
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.10",
