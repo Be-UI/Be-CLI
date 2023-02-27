@@ -8,13 +8,13 @@ import progress from 'vite-plugin-progress'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import viteCompression from 'vite-plugin-compression'
 import { viteImgCompress } from 'unplugin-img-compress'
-// IMPORT_FLAG
+import Unocss from 'unocss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    // PLUGINS_FLAG
+    Unocss(),
     AutoImport({
       resolvers: [AntDesignVueResolver()],
     }),
