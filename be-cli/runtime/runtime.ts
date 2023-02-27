@@ -1,11 +1,10 @@
 import chalk from 'chalk'
-import {getTemplateDir, PROJECTTYPE} from '../utils'
+import {getTemplateDir, ICliOption, PROJECTTYPE} from '../utils'
 import { runRuntimeVue } from './runtime-vue'
 import { runRuntimeLib } from './runtime-lib'
 import { runRuntimeReact } from './runtime-react'
 import { runRuntimeOther } from './runtime-other'
-import type { ILibOption, IOtherOption, IViteProjOption } from '../utils'
-export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
+export async function run(option: ICliOption) {
   const {
     projectName,
     projectType,
@@ -24,17 +23,13 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
     const uiLib = uiLibType === 'element' ? 'ep' : 'antd'
     const templatePathName = `${projectType}-${uiLib}-${cssLibType}-${unitTestLibType}`
     const templateDir= `${getTemplateDir()}/${templatePathName}`
-    console.log(templateDir)
-    /* const viteReactOption = {
-      projectName,
-      projectPath,
-      uiLibType,
-      cssLibType,
-      projectType,
-      unitTestLibType,
+     const viteReactOption = {
+       projectName,
+       projectPath,
+       templateDir
     }
     await runRuntimeReact(viteReactOption)
-    return */
+    return
   }
 
   // vue project template runtime
@@ -42,16 +37,12 @@ export async function run(option: IViteProjOption & ILibOption & IOtherOption) {
     const uiLib = uiLibType === 'element' ? 'ep' : 'antd'
     const templatePathName = `${projectType}-${uiLib}-${cssLibType}-${unitTestLibType}`
     const templateDir= `${getTemplateDir()}/${templatePathName}`
-    console.log(templateDir)
-    /* const viteVueOption = {
+    const viteVueOption = {
       projectName,
       projectPath,
-      uiLibType,
-      cssLibType,
-      projectType,
-      unitTestLibType,
+      templateDir
     }
-    await runRuntimeVue(viteVueOption) */
+    await runRuntimeVue(viteVueOption)
   }
 
   // lib project template runtime
