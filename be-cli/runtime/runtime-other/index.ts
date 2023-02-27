@@ -3,9 +3,9 @@ import chalk from 'chalk'
 import fs from 'fs-extra'
 import { filterFile } from '../../utils'
 import { readPackageJson, writePackageJson } from '../read-write-package'
-import type { IOtherOption } from '../../utils'
+import type { IProjOption } from '../../utils'
 
-export async function runRuntimeOther(option: IOtherOption) {
+export async function runRuntimeOther(option: IProjOption) {
   const {
     projectName,
     projectPath,

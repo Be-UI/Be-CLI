@@ -4,19 +4,7 @@ export interface IPackageInfo {
   description: string
   author: string
 }
-export interface IViteProjOption {
-  templateDir: string
-  projectName: string
-  projectPath: string
-}
-
-export interface ILibOption{
-  templateDir: string
-  projectName: string
-  projectPath: string
-}
-
-export type IOtherOption = {
+export interface IProjOption {
   templateDir: string
   projectName: string
   projectPath: string
@@ -32,16 +20,4 @@ export interface ICliOption {
   envType: string
   buildLibType: string
   otherType: string
-}
-
-export interface ISpawnOptions {
-  cwd?: string
-  env?: object
-  argv0?: string
-  stdio?: string
-  detach?: boolean
-  uid?: number
-  gid?: number
-  shell?: boolean | string
-  timeout?: number
 }

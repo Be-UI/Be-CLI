@@ -1,16 +1,14 @@
 import ora from 'ora'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import { filterFile, templatePath } from '../../utils'
-import { addBaseUnitTest, addUnitTestDeps } from '../add-unit-test'
-import { addAtomCss } from '../add-atom-css'
+import { filterFile } from '../../utils'
 import { readPackageJson, writePackageJson } from '../read-write-package'
-import type { IViteProjOption } from '../../utils'
-export const runRuntimeReact = async(option: IViteProjOption) => {
+import type { IProjOption } from '../../utils'
+export const runRuntimeReact = async(option: IProjOption) => {
   const {
     projectName,
     projectPath,
-    templateDir
+    templateDir,
   } = option
 
   const spinner = ora('Loading').start()
