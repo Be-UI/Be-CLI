@@ -5,6 +5,7 @@
 
 import * as path from 'path'
 import { Command } from 'commander'
+import { cac } from 'cac'
 
 import {
   PROJECTTYPE,
@@ -20,7 +21,8 @@ import {
   uiLibTypeReactOptions,
   unitTestTypeOptions,
 } from './utils'
-import { run } from './runtime/runtime'
+import { run as runtimeStart } from './runtime/runtime'
+import process from "process";
 
 export function BeCLIRun() {
 // 获取package 文件配置信息
@@ -52,7 +54,8 @@ export function BeCLIRun() {
       otherRes = await promptsRun(otherTypeOptions)
     } else {
       // 选择使用那个组件库
-      componentUiRes = await promptsRun(typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
+      componentUiRes = await promptsRun(
+        typeRes.projectType === PROJECTTYPE.REACT ? uiLibTypeReactOptions : uiLibTypeOptions)
       // 选择使用那个css原子样式库
       cssUiRes = await promptsRun(cssLibTypeOptions)
     }
@@ -77,20 +80,20 @@ export function BeCLIRun() {
     } as any
     console.log(options)
     // 开始运行命令
-    //await run(options)
+    //await runtimeStart(options)
   })
 
   program.parse()
 }
 
-async function start() {
+export const run = async() => {
   const pkg = getConfigFile()
-  const argv = process.argv
-  const len = argv.length
-  if (argv[len - 1] === '--v')
-    console.log(`Be ClI: v${pkg.version}`)
-  else
-    BeCLIRun()
+  const cli = cac('be-ui-cli')
+  cli.command('create', 'Select template project').action(async() => {
+    await BeCLIRun()
+  })
+  cli.help()
+  cli.version(pkg.version)
+  cli.parse()
 }
 
-start()

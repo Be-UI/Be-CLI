@@ -49,7 +49,7 @@ export const cssLibTypeOptions = [{
   type: 'select',
   name: 'cssLibType',
   message: 'please select a css atom library',
-  choices: ['windicss', 'unocss', 'Don\'t need'].map((item, index) => {
+  choices: ['windicss', 'unocss'].map((item, index) => {
     const valueDict = [CSSLIBTYPE.WINDICSS, CSSLIBTYPE.UNOCSS, 'no']
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }
@@ -61,7 +61,7 @@ export const unitTestTypeOptions = [{
   type: 'select',
   name: 'unitTestLibType',
   message: 'please select a unit test library',
-  choices: ['vitest', 'jest', 'Don\'t need'].map((item, index) => {
+  choices: ['vitest', 'jest'].map((item, index) => {
     const valueDict = [UNITTESTLIBTYPE.VITEST, UNITTESTLIBTYPE.JEST, 'no']
     // 选择时的标题和选择时的值
     return { title: item, value: valueDict[index] }

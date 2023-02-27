@@ -34,7 +34,7 @@
   "scripts": {
     "init": "node build-script/install.js",
     "lint:fix": "eslint --fix ./ --ext .vue,.js,.ts,.jsx,.tsx,.json ",
-    "dev": "cross-env ENV=BECLIDEV esno be-cli/index.ts",
+    "dev": "cross-env ENV=BECLIDEV esno be-cli/bin/index.ts create",
     "build": "pnpm run clean && rollup -c build-script/rollup.config.js && node build-script/build-pkg.js",
     "release": "bumpp package.json --commit --push --tag",
     "publish": "pnpm publish --no-git-checks --access public",
@@ -44,6 +44,16 @@
     "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
     "clean": "rimraf dist"
   },
+  "peerDependencies": {
+    "chalk": "5.2.0",
+    "colors": "^1.4.0",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
+    "ora": "^6.1.2",
+    "prompts": "^2.4.2",
+    "readdirp": "^3.6.0",
+    "cac": "^6.7.14"
+  },
   "dependencies": {
     "chalk": "5.2.0",
     "colors": "^1.4.0",
@@ -51,7 +61,8 @@
     "fs-extra": "^11.1.0",
     "ora": "^6.1.2",
     "prompts": "^2.4.2",
-    "readdirp": "^3.6.0"
+    "readdirp": "^3.6.0",
+    "cac": "^6.7.14"
   },
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.10",
