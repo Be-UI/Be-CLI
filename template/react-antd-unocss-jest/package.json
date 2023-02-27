@@ -1,5 +1,5 @@
 {
-  "name": "@be-ui-cli/react-antd-vitest",
+  "name": "@be-ui-cli/react-antd-unocss-jest",
   "private": true,
   "type": "module",
   "version": "0.0.0",
