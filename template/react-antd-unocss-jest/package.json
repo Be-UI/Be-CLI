@@ -45,7 +45,7 @@
     "autoprefixer": "^10.4.7",
     "bumpp": "^8.2.1",
     "conventional-changelog-cli": "^2.2.2",
-    "easy-tinypng-cli": "^0.4.1",
+    "unplugin-img-compress": "^1.1.0",
     "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "postcss": "^8.4.14",

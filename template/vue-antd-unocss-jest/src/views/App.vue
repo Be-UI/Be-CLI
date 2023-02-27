@@ -16,5 +16,5 @@ getHomeData({ appKey: 'appKey' })
 </template>
 
 <style lang="scss">
-@import "..assets/style/app";
+@import "../assets/style/app";
 </style>
