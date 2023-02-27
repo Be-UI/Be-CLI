@@ -1,3 +1,3 @@
-import { runtime } from '@template-play/entry'
+import { runtime } from '@be-ui-cli/t-node-rollup-jest-entry'
 
 runtime()

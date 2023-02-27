@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { runtimeBrowser } from '@template-play/entry'
+import { runtimeBrowser } from '@be-ui-cli/t-node-rollup-jest-entry'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
