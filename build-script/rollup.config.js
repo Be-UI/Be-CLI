@@ -15,7 +15,7 @@ const config = [
       'prompts',
       'readdirp',
     ],
-    input: './core/index.ts', // 必须，入口文件
+    input: './be-cli/index.ts', // 必须，入口文件
     output: [
       {
         file: './dist/index.js',
@@ -29,12 +29,10 @@ const config = [
       }),
       json(),
       nodeResolve(),
-      terser(),
+      //terser(),
       cleanup({ comments: 'none' }),
       copy({
         targets: [
-          { src: 'template', dest: 'dist/' },
-          { src: 'entry', dest: 'dist/' },
           { src: './package.json', dest: 'dist/' },
           { src: './README.md', dest: 'dist/' },
         ],

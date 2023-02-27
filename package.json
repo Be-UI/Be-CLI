@@ -25,11 +25,13 @@
   "main": "index.js",
   "files": [
     "dist",
-    "entry",
-    "template"
+    "bin",
+    "template",
+    "index.js",
+    "README.md"
   ],
   "bin": {
-    "be-ui-cli": "entry/index.js"
+    "be-ui-cli": "bin/index.js"
   },
   "scripts": {
     "init": "pnpm install",
