@@ -17,18 +17,18 @@ export async function runRuntimeOther(option: IOtherOption) {
     spinner.color = 'blue'
     await fs.copySync(templatePath[otherType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
-    // 读取 package.json ，修改名称
+    // TODO: 读取 package.json ，修改名称
     let packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
     // 添加单元测试
-    await addBaseUnitTest(packageJson, option, otherType === OTHERTYPE.PUREACT ? 'React' : '')
-    if (otherType === OTHERTYPE.PUREACT)
-      packageJson = addUnitTestDeps(packageJson, option, 'React')
-    else
-      packageJson = addUnitTestDeps(packageJson, option, 'Vue')
+    // await addBaseUnitTest(packageJson, option, otherType === OTHERTYPE.PUREACT ? 'React' : '')
+    // if (otherType === OTHERTYPE.PUREACT)
+    //   packageJson = addUnitTestDeps(packageJson, option, 'React')
+    // else
+    //   packageJson = addUnitTestDeps(packageJson, option, 'Vue')
 
-    // 写入package.json
+    // TODO: 写入package.json
     await writePackageJson(projectPath, packageJson)
 
     spinner.text = chalk.greenBright.bold(`\ncreate project <${projectName}> success !`)
