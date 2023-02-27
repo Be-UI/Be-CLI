@@ -29,7 +29,7 @@ const config = [
       }),
       json(),
       nodeResolve(),
-      //terser(),
+      terser(),
       cleanup({ comments: 'none' }),
       copy({
         targets: [
