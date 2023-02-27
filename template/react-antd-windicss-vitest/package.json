@@ -1,0 +1,80 @@
+{
+  "name": "@be-ui-cli/react-antd-windicss-vitest",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "^pnpm@7.0.0",
+  "scripts": {
+    "init": "pnpm i",
+    "serve:dev": "vite --host --mode development",
+    "serve:stage": "vite --host --mode stage",
+    "serve:prod": "vite --host --mode production",
+    "build:dev": "vite build --mode development",
+    "build:stage": "vite build --mode stage",
+    "build:prod": "vite build --mode development",
+    "preview": "vite preview",
+    "lint:ts": "eslint --fix ../react-vite/antd --ext .vue,.js,.ts,.jsx,.tsx,.json",
+    "prepare": "husky install && pnpm run husky:step1 && pnpm run husky:step2",
+    "husky:step1": "npx husky add .husky/pre-commit \"npm exec lint-staged --allow-empty\"",
+    "husky:step2": "git add .husky/pre-commit && npx husky add .husky/commit-msg \"npx --no -- commitlint --edit $1\" && git add .husky/commit-msg",
+    "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "optimizeImages": "tiny --once"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.0",
+    "@types/prop-types": "^15.7.5",
+    "antd": "^5.1.5",
+    "axios": "^1.2.2",
+    "postcss-px-to-viewport-8-plugin": "^1.1.5",
+    "qs": "^6.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.2"
+  },
+  "devDependencies": {
+    "@baiwusanyu/eslint-config": "^1.0.10",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@types/node": "^18.11.18",
+    "@types/qs": "^6.9.7",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^3.0.1",
+    "autoprefixer": "^10.4.7",
+    "bumpp": "^8.2.1",
+    "conventional-changelog-cli": "^2.2.2",
+    "easy-tinypng-cli": "^0.4.1",
+    "eslint": "^8.32.0",
+    "husky": "^8.0.3",
+    "postcss": "^8.4.14",
+    "postcss-px2rem": "^0.3.0",
+    "postcss-pxtorem": "^6.0.0",
+    "postcss-scss": "^4.0.4",
+    "postcss-syntax": "^0.36.2",
+    "prop-types": "^15.8.1",
+    "react-redux": "^8.0.4",
+    "sass": "^1.57.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-progress": "^0.0.6"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": [
+      "eslint ./ --fix",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "@baiwusanyu"
+    ]
+  }
+}
