@@ -20,14 +20,14 @@ export const runRuntimeReact = async(option: IViteProjOption) => {
     await fs.copySync(templatePath[`${uiLibType}React` as keyof typeof templatePath], projectPath, { filter: filterFile })
 
     // TODO: 读取 package.json ，修改名称
-    let packageJson = await readPackageJson(option)
+    const packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
     // 设置原子css
-   // await addAtomCss(packageJson, option, 'tsx')
-   // // 添加单元测试
-   // await addBaseUnitTest(packageJson, option, 'React')
-   // packageJson = addUnitTestDeps(packageJson, option, 'React')
+    // await addAtomCss(packageJson, option, 'tsx')
+    // // 添加单元测试
+    // await addBaseUnitTest(packageJson, option, 'React')
+    // packageJson = addUnitTestDeps(packageJson, option, 'React')
 
     // TODO: 写入package.json
     await writePackageJson(projectPath, packageJson)

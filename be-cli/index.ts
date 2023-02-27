@@ -4,6 +4,7 @@
  */
 
 import * as path from 'path'
+import process from 'process'
 import { Command } from 'commander'
 import { cac } from 'cac'
 
@@ -22,7 +23,6 @@ import {
   unitTestTypeOptions,
 } from './utils'
 import { run as runtimeStart } from './runtime/runtime'
-import process from "process";
 
 export function BeCLIRun() {
 // 获取package 文件配置信息
@@ -62,9 +62,8 @@ export function BeCLIRun() {
 
     // 选择使用单元测试
     let unitTestRes = {}
-    if(typeRes.projectType !== PROJECTTYPE.OTHER){
+    if (typeRes.projectType !== PROJECTTYPE.OTHER)
       unitTestRes = await promptsRun(unitTestTypeOptions)
-    }
 
     // 项目存储路径
     const rootPath = process.cwd()
@@ -98,4 +97,3 @@ export const run = async() => {
   cli.version(pkg.version)
   cli.parse()
 }
-

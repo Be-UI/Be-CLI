@@ -20,15 +20,15 @@ export const runRuntimeVue = async(option: IViteProjOption) => {
     await fs.copySync(templatePath[uiLibType as keyof typeof templatePath], projectPath, { filter: filterFile })
 
     // TODO: 读取 package.json ，修改名称
-    let packageJson = await readPackageJson(option)
+    const packageJson = await readPackageJson(option)
     packageJson.name = projectName
 
     // 设置原子css
-    //await addAtomCss(packageJson, option, 'ts')
+    // await addAtomCss(packageJson, option, 'ts')
 
     // 添加单元测试
-    //await addBaseUnitTest(packageJson, option, '')
-    //packageJson = addUnitTestDeps(packageJson, option, 'Vue')
+    // await addBaseUnitTest(packageJson, option, '')
+    // packageJson = addUnitTestDeps(packageJson, option, 'Vue')
 
     // TODO: 写入package.json
     await writePackageJson(projectPath, packageJson)
