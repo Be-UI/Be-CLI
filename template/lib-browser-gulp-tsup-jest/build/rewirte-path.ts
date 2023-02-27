@@ -12,8 +12,8 @@ import { relativeDir } from './utils'
  * so after the packaging is completed, we Dependency paths need to be replaced
  */
 const distDirMap = {
-  '@template-node-tsup/utils': 'dist/utils/index[format]',
-  '@template-node-tsup/runtime': 'dist/runtime/index[format]',
+  '@be-ui-cli/lib-browser-gulp-tsup-jest-utils': 'dist/utils/index[format]',
+  '@be-ui-cli/lib-browser-gulp-tsup-jest-runtime': 'dist/runtime/index[format]',
 }
 const formatList = [
   { runPath: path.resolve(process.cwd(), 'dist/**/*.js'), format: '.js' },

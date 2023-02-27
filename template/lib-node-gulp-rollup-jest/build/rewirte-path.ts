@@ -11,8 +11,8 @@ import { relativeDir } from './utils'
  * so after the packaging is completed, we Dependency paths need to be replaced
  */
 const distDirMap = {
-  '@template-node-rollup/utils': '../dist/utils/index[format]',
-  '@template-node-rollup/runtime': '../dist/runtime/index[format]',
+  '@be-ui-cli/lib-node-gulp-rollup-jest-utils': '../dist/utils/index[format]',
+  '@be-ui-cli/lib-node-gulp-rollup-jest-runtime': '../dist/runtime/index[format]',
 }
 const formatList = [
   { runPath: path.resolve('../dist/**/*.js'), format: 'js' },

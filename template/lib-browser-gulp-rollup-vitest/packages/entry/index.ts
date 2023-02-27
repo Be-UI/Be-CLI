@@ -1,2 +1,2 @@
-export * from '@template-node-rollup/runtime'
-export * from '@template-node-rollup/utils'
+export * from '@be-ui-cli/t-node-rollup-vitest-runtime'
+export * from '@be-ui-cli/t-node-rollup-vitest-utils'

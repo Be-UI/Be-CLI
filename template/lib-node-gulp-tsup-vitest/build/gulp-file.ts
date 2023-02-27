@@ -14,5 +14,5 @@ export default series(
   // 移动dist
   async() => { await moveDistToRoot() },
   // 删build目录下dist
-  async() => { await run('pnpm run --filter @template-node-tsup/build clean') },
+  async() => { await run('pnpm run --filter @be-ui-cli/lib-node-gulp-tsup-vitest-build clean') },
 )

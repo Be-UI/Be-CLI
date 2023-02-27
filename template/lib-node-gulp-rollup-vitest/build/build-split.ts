@@ -13,8 +13,8 @@ const config = {
   input: '../packages/entry/index.ts',
   external: [
     'chalk',
-    '@template-node-rollup/utils',
-    '@template-node-rollup/runtime',
+    '@be-ui-cli/lib-node-gulp-rollup-vitest-utils',
+    '@be-ui-cli/lib-node-gulp-rollup-vitest-runtime',
   ],
   output: [],
   plugins: [],

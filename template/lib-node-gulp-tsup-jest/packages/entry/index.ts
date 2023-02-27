@@ -1,2 +1,2 @@
-export * from '@template-node-tsup/runtime'
-export * from '@template-node-tsup/utils'
+export * from '@be-ui-cli/lib-node-gulp-tsup-jest-runtime'
+export * from '@be-ui-cli/lib-node-gulp-tsup-jest-utils'

@@ -1,3 +1,3 @@
-import { runtime } from '@template-play/entry'
+import { runtime } from '@be-ui-cli/lib-node-gulp-rollup-vitest-entry'
 
 runtime()

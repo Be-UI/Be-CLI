@@ -1,5 +1,5 @@
 import * as process from 'process'
-import { log } from '@template-node-rollup/utils'
+import { log } from '@be-ui-cli/lib-node-gulp-rollup-jest-utils'
 
 export const runtime = () => {
   log('info', `test running....${process.env.RUNTIME_ENV}`)
