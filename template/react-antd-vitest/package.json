@@ -1,5 +1,5 @@
 {
-  "name": "react-vite-template",
+  "name": "@be-ui-cli/react-antd-vitest",
   "private": true,
   "type": "module",
   "version": "0.0.0",

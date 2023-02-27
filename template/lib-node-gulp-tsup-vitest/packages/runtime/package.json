@@ -1,5 +1,5 @@
 {
-  "name": "@template-node-tsup/runtime",
+  "name": "@be-ui-cli/lib-node-gulp-tsup-vitest-runtime",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -11,6 +11,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@template-node-tsup/utils": "*"
+    "@be-ui-cli/lib-node-gulp-tsup-vitest-utils": "workspace:*"
   }
 }

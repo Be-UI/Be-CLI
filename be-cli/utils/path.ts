@@ -1,4 +1,4 @@
-import * as path from 'be-cli/utils/path'
+import * as path from 'path'
 import { fileURLToPath } from 'url'
 import { cwd } from 'node:process'
 

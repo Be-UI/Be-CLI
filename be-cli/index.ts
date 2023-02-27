@@ -77,7 +77,7 @@ export function BeCLIRun() {
     } as any
     console.log(options)
     // 开始运行命令
-    await run(options)
+    //await run(options)
   })
 
   program.parse()

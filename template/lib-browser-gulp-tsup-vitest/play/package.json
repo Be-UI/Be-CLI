@@ -1,5 +1,5 @@
 {
-  "name": "@template-play/play",
+  "name": "@be-ui-cli/lib-browser-gulp-tsup-vitest-play",
   "private": true,
   "type": "module",
   "version": "1.0.0",
@@ -13,7 +13,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@template-play/entry": "*",
+    "@be-ui-cli/lib-browser-gulp-tsup-vitest-entry": "workspace:*",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.1",

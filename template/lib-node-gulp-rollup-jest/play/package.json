@@ -1,5 +1,5 @@
 {
-  "name": "@template-play/play",
+  "name": "@be-ui-cli/lib-node-gulp-rollup-jest-play",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -12,6 +12,6 @@
   },
 
   "devDependencies": {
-    "@template-node-rollup/entry": "*"
+    "@be-ui-cli/lib-node-gulp-rollup-jest-entry": "workspace:*"
   }
 }

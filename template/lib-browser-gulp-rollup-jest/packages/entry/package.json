@@ -1,5 +1,5 @@
 {
-  "name": "@template-node-rollup/entry",
+  "name": "@be-ui-cli/t-node-rollup-jest-entry",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@template-node-rollup/runtime": "*",
-    "@template-node-rollup/utils": "*"
+    "@be-ui-cli/t-node-rollup-jest-runtime": "workspace:*",
+    "@be-ui-cli/t-node-rollup-jest-utils": "workspace:*"
   }
 }

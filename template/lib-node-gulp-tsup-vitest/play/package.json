@@ -1,5 +1,5 @@
 {
-  "name": "@template-play/play",
+  "name": "@be-ui-cli/lib-node-gulp-tsup-vitest-play",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -12,6 +12,6 @@
   },
 
   "devDependencies": {
-    "@template-node-tsup/entry": "*"
+    "@be-ui-cli/lib-node-gulp-tsup-vitest-entry": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@template-node-tsup/entry",
+  "name": "@be-ui-cli/lib-browser-gulp-tsup-vitest-entry",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@template-node-tsup/runtime": "*",
-    "@template-node-tsup/utils": "*"
+    "@be-ui-cli/lib-browser-gulp-tsup-vitest-runtime": "workspace:*",
+    "@be-ui-cli/lib-browser-gulp-tsup-vitest-utils": "workspace:*"
   }
 }

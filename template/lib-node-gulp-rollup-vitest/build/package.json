@@ -1,5 +1,5 @@
 {
-  "name": "@template-node-rollup/build",
+  "name": "@be-ui-cli/lib-node-gulp-rollup-vitest-build",
   "description": "",
   "type": "module",
   "version": "1.0.0",
@@ -17,7 +17,7 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
-    "@template-node-rollup/entry": "*",
+    "@be-ui-cli/lib-node-gulp-rollup-vitest-entry": "workspace:*",
     "cross-env": "^7.0.3",
     "esno": "^0.16.3",
     "rimraf": "^3.0.2",
