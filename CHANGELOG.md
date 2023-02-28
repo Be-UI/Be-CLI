@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/Be-UI/Be-CLI/compare/v1.2.9...v2.0.0) (2023-02-28)
+
+
+### Bug Fixes
+
+* fix template path error in pkg ([f15f154](https://github.com/Be-UI/Be-CLI/commit/f15f1540cd03db5590c59b82d6d01ace35dddbc7))
+
+
+
 ## [1.2.9](https://github.com/Be-UI/Be-CLI/compare/v1.2.8...v1.2.9) (2023-02-13)
 
 
