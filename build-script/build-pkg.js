@@ -16,31 +16,7 @@ async function buildBin() {
   await fs.outputFileSync('./dist/bin/index.js', contextStr)
 }
 
-async function buildTemplate() {
-  const filterFile = (src) => {
-    if ((src.includes('auto-imports.d')
-        || src.includes('components.d')
-        || src.includes('.git')
-        || src.includes('node_modules')
-        || src.includes('.idea')) && src.includes('.gitignore'))
-      return false
-
-    return true
-  }
-  await fs.copySync('./template', './dist/template', { filter: filterFile })
-  // 删除 node_modules
-  await fs.readdir('./dist/template', (err, files) => {
-    if (err)
-      throw err
-
-    files.forEach((val) => {
-      val !== '.DS_Store' && fs.remove(`./dist/template/${val}/node_modules`)
-    })
-  })
-}
-
 const run = async() => {
-  await buildTemplate()
   await buildPkg()
   await buildBin()
 }

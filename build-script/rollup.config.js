@@ -33,6 +33,7 @@ const config = [
       cleanup({ comments: 'none' }),
       copy({
         targets: [
+          { src: 'template', dest: 'dist/' },
           { src: './package.json', dest: 'dist/' },
           { src: './README.md', dest: 'dist/' },
         ],
