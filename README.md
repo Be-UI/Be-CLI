@@ -22,7 +22,7 @@ test
 <img style="margin: 10px" width="80px" src="https://qn.antdv.com/logo.png" />
 </p>
 
-
+test
 # Be-CLI 🦋 🚀
 
 > A simple project template with [Vite.js](https://vitejs.dev/)
