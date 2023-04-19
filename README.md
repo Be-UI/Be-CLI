@@ -14,7 +14,6 @@ A cli for quickly generating project template
 <p  align='center' style="margin:0 auto;width: 740px;display:block">
 <img style="margin: 10px" width="80px" src="https://vitejs.dev/logo.svg"/>
 <img style="margin: 10px" width="80px" src="https://vuejs.org/images/logo.png"/>
-test
 <img style="margin: 10px" width="80px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"/>
 <img style="margin: 10px" width="80px" src="https://raw.githubusercontent.com/unocss/unocss/main/playground/public/icon-gray.svg"/>
 <img style="margin: 10px" width="80px" src="https://next.windicss.org/assets/logo.svg"/>
