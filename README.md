@@ -139,3 +139,4 @@ Display help message
 ```` shell
 be-ui-cli -h
 ````
+test
