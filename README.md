@@ -23,7 +23,7 @@ test
 </p>
 
 
-# Be-CLI 🦋 🚀
+# Be-CLI 🦋 🚀 test
 
 > A simple project template with [Vite.js](https://vitejs.dev/)
 
