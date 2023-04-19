@@ -124,7 +124,7 @@ create package.json success !
 create project <be-cli-project> success !
 
 ````
-
+test
 ### Other
 #### -v ｜ --version
 Display version message
